@@ -1,120 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextGen Coaching Institute</title>
+<!-- ================= Floating Arrow to Chatbot ================= -->
+<div id="chatbot-arrow" onclick="openChat()">
+  <svg viewBox="0 0 24 24">
+    <line x1="12" y1="2" x2="12" y2="22"></line>
+    <line x1="5" y1="15" x2="12" y2="22"></line>
+    <line x1="19" y1="15" x2="12" y2="22"></line>
+  </svg>
+</div>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<div id="chatbot-tooltip">Click to Chat with AI!</div>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f9f9f9; /* light background */
-  color: #333;
-}
-
-/* Header */
-header {
-  background: #00bfff;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-header h1 {
-  color: #fff;
-  margin: 0;
-  font-size: 32px;
-}
-
-header p {
-  color: #e0f7ff;
-  margin-top: 5px;
-}
-
-/* Sections */
-section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-h2 {
-  text-align: center;
-  color: #00bfff;
-  margin-bottom: 40px;
-}
-
-/* Cards */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.card {
-  background: #ffffff;
-  border: 1px solid #00bfff;
-  border-radius: 18px;
-  padding: 25px;
-  width: 280px;
-  text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 4px 15px rgba(0,191,255,0.2);
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 25px rgba(0,191,255,0.3);
-}
-
-.card h3 {
-  color: #00bfff;
-}
-
-.card p {
-  font-size: 14px;
-  color: #333;
-}
-
-/* CTA */
-.cta {
-  background: #00bfff;
-  color: #fff;
-  padding: 40px;
-  text-align: center;
-  border-radius: 20px;
-}
-
-.cta h2 {
-  color: #fff;
-}
-
-.cta p {
-  font-weight: 500;
-}
-
-/* Footer */
-footer {
-  background: #00bfff;
-  text-align: center;
-  padding: 20px;
-  color: #fff;
-  margin-top: 60px;
-}
-
-/* Responsive */
-@media(max-width: 900px) {
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* ---------------- Floating arrow to chatbot ---------------- */
+/* Floating arrow container */
 #chatbot-arrow {
   position: fixed;
   bottom: 90px; 
@@ -123,23 +19,40 @@ footer {
   height: 60px;
   z-index: 100000; 
   cursor: pointer;
-  animation: bounce 1.2s infinite;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00bfff;
+  box-shadow: 0 0 20px rgba(0,191,255,0.6);
+  animation: bounce 1.2s infinite, glow 2s infinite alternate;
 }
 
+/* Arrow SVG */
 #chatbot-arrow svg {
-  width: 100%;
-  height: 100%;
-  fill: #00bfff;
-  filter: drop-shadow(0 0 15px #00bfff);
-  transform: rotate(45deg); 
+  width: 30px;
+  height: 30px;
+  stroke: #fff;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform: rotate(45deg);
 }
 
+/* Bounce animation */
 @keyframes bounce {
   0%, 100% { transform: translateY(0) rotate(45deg); }
-  50% { transform: translateY(-15px) rotate(45deg); }
+  50% { transform: translateY(-10px) rotate(45deg); }
 }
 
-/* Tooltip above arrow */
+/* Glow effect */
+@keyframes glow {
+  0% { box-shadow: 0 0 15px rgba(0,191,255,0.6); }
+  100% { box-shadow: 0 0 35px rgba(0,191,255,1); }
+}
+
+/* Tooltip */
 #chatbot-tooltip {
   position: fixed;
   bottom: 160px;
@@ -150,125 +63,18 @@ footer {
   z-index: 100000;
   font-size: 14px;
   animation: pulse 1.5s infinite;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,191,255,0.5);
 }
 
+/* Tooltip pulse */
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
 }
 </style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-<header>
-  <h1>NextGen Coaching Institute</h1>
-  <p>Empowering Students for a Smarter Future</p>
-</header>
-
-<!-- ABOUT -->
-<section>
-  <h2>About Us</h2>
-  <p style="text-align:center; max-width:800px; margin:auto;">
-    NextGen Coaching Institute is a professional training center focused on
-    competitive exams, IT skills, and career growth. We provide expert guidance,
-    structured learning paths, and 24/7 AI-powered student support.
-  </p>
-</section>
-
-<!-- COURSES -->
-<section>
-  <h2>Our Courses</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>IT & Programming</h3>
-      <p>Python, AI, Web Development & Data Science training with live projects.</p>
-    </div>
-    <div class="card">
-      <h3>Competitive Exams</h3>
-      <p>Preparation for entry tests, government exams, and aptitude assessments.</p>
-    </div>
-    <div class="card">
-      <h3>Career Guidance</h3>
-      <p>Personalized mentorship, CV reviews, and interview preparation.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section>
-  <h2>Why Choose Us?</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Expert Mentors</h3>
-      <p>Industry professionals with years of teaching experience.</p>
-    </div>
-    <div class="card">
-      <h3>Smart Learning</h3>
-      <p>AI-powered doubt solving & instant assistance.</p>
-    </div>
-    <div class="card">
-      <h3>Student Success</h3>
-      <p>Thousands of successful students placed globally.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section>
-  <div class="cta">
-    <h2>Have Questions?</h2>
-    <p>Chat with our AI Assistant anytime using the chat icon below.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  © 2025 NextGen Coaching Institute | All Rights Reserved
-</footer>
-
-<!-- ================= CHATBASE CHATBOT ================= -->
-<script>
-(function(){
-  if(!window.chatbase || window.chatbase("getState") !== "initialized"){
-    window.chatbase = (...arguments) => {
-      if(!window.chatbase.q){ window.chatbase.q = [] }
-      window.chatbase.q.push(arguments)
-    };
-    window.chatbase = new Proxy(window.chatbase, {
-      get(target, prop){
-        if(prop === "q"){ return target.q }
-        return (...args) => target(prop, ...args)
-      }
-    });
-  }
-
-  const onLoad = function(){
-    const script = document.createElement("script");
-    script.src = "https://www.chatbase.co/embed.min.js";
-    script.id = "ZDUqo-DLpcCe109f10aKx";  // YOUR CHATBOT ID
-    script.domain = "www.chatbase.co";
-    document.body.appendChild(script);
-  };
-
-  if(document.readyState === "complete"){
-    onLoad();
-  } else {
-    window.addEventListener("load", onLoad);
-  }
-})();
-</script>
-<!-- ==================================================== -->
-
-<!-- ================= Floating Arrow to Chatbot ================= -->
-<div id="chatbot-arrow" onclick="openChat()">
-  <svg viewBox="0 0 24 24">
-    <path d="M12 2v20m0 0l-7-7m7 7l7-7"/>
-  </svg>
-</div>
-
-<div id="chatbot-tooltip">Click to Chat with AI!</div>
 
 <script>
 function openChat() {
@@ -277,7 +83,3 @@ function openChat() {
   }
 }
 </script>
-<!-- ==================================================== -->
-
-</body>
-</html>
