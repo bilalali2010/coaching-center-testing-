@@ -93,11 +93,11 @@ footer {
   margin-top: 60px;
 }
 
-/* Floating chatbot arrow */
+/* ================= CHATBOT ARROW ================= */
 #chatbot-arrow {
   position: fixed;
-  bottom: 90px;
-  right: 30px;
+  bottom: 110px;
+  right: 35px;
   width: 60px;
   height: 60px;
   z-index: 99999;
@@ -121,18 +121,23 @@ footer {
   animation: arrowBounce 1.2s infinite;
 }
 
+/* Arrow bounce + correct direction (DOWN-RIGHT) */
 @keyframes arrowBounce {
-  0%,100% { transform: translateY(0) rotate(45deg); }
-  50% { transform: translateY(-10px) rotate(45deg); }
+  0%, 100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-45deg);
+  }
 }
 
 /* Tooltip */
 #chatbot-tooltip {
   position: fixed;
-  bottom: 160px;
-  right: 20px;
+  bottom: 185px;
+  right: 25px;
   z-index: 99999;
-  background: #fff;
+  background: #ffffff;
   color: #00bfff;
   font-weight: 600;
   font-size: 14px;
