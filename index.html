@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGen Coaching Institute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0d111f;
+  color: #e0f7ff;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #001733, #0d111f);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,255,255,0.2);
+}
+
+header h1 {
+  color: #00f0ff;
+  margin: 0;
+  font-size: 32px;
+}
+
+header p {
+  color: #c0f0ff;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  color: #00f0ff;
+  margin-bottom: 40px;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background: rgba(0,255,255,0.05);
+  border: 1px solid rgba(0,255,255,0.2);
+  border-radius: 18px;
+  padding: 25px;
+  width: 280px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
+
+.card h3 {
+  color: #00f0ff;
+}
+
+.card p {
+  font-size: 14px;
+  color: #c0f0ff;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(90deg, #00f0ff, #0ff);
+  color: #0d111f;
+  padding: 40px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.cta h2 {
+  color: #0d111f;
+}
+
+.cta p {
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  background: #001733;
+  text-align: center;
+  padding: 20px;
+  color: #00f0ff;
+  margin-top: 60px;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>NextGen Coaching Institute</h1>
+  <p>Empowering Students for a Smarter Future</p>
+</header>
+
+<!-- ABOUT -->
+<section>
+  <h2>About Us</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">
+    NextGen Coaching Institute is a professional training center focused on
+    competitive exams, IT skills, and career growth. We provide expert guidance,
+    structured learning paths, and 24/7 AI-powered student support.
+  </p>
+</section>
+
+<!-- COURSES -->
+<section>
+  <h2>Our Courses</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>IT & Programming</h3>
+      <p>Python, AI, Web Development & Data Science training with live projects.</p>
+    </div>
+    <div class="card">
+      <h3>Competitive Exams</h3>
+      <p>Preparation for entry tests, government exams, and aptitude assessments.</p>
+    </div>
+    <div class="card">
+      <h3>Career Guidance</h3>
+      <p>Personalized mentorship, CV reviews, and interview preparation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section>
+  <h2>Why Choose Us?</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Expert Mentors</h3>
+      <p>Industry professionals with years of teaching experience.</p>
+    </div>
+    <div class="card">
+      <h3>Smart Learning</h3>
+      <p>AI-powered doubt solving & instant assistance.</p>
+    </div>
+    <div class="card">
+      <h3>Student Success</h3>
+      <p>Thousands of successful students placed globally.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="cta">
+    <h2>Have Questions?</h2>
+    <p>Chat with our AI Assistant anytime using the chat icon below.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 NextGen Coaching Institute | All Rights Reserved
+</footer>
+
+<!-- ================= CHATBASE CHATBOT ================= -->
+<script>
+(function(){
+  if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+    window.chatbase = (...arguments) => {
+      if(!window.chatbase.q){ window.chatbase.q = [] }
+      window.chatbase.q.push(arguments)
+    };
+    window.chatbase = new Proxy(window.chatbase, {
+      get(target, prop){
+        if(prop === "q"){ return target.q }
+        return (...args) => target(prop, ...args)
+      }
+    });
+  }
+
+  const onLoad = function(){
+    const script = document.createElement("script");
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.id = "ZDUqo-DLpcCe109f10aKx";  // YOUR CHATBOT ID
+    script.domain = "www.chatbase.co";
+    document.body.appendChild(script);
+  };
+
+  if(document.readyState === "complete"){
+    onLoad();
+  } else {
+    window.addEventListener("load", onLoad);
+  }
+})();
+</script>
+<!-- ==================================================== -->
+
+</body>
+</html>
