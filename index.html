@@ -1,34 +1,115 @@
-<!-- ================= Floating Arrow to Chatbot ================= -->
-<div id="chatbot-arrow" onclick="openChat()">
-  <svg viewBox="0 0 24 24">
-    <line x1="12" y1="2" x2="12" y2="22"></line>
-    <line x1="5" y1="15" x2="12" y2="22"></line>
-    <line x1="19" y1="15" x2="12" y2="22"></line>
-  </svg>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGen Coaching Institute</title>
 
-<div id="chatbot-tooltip">Click to Chat with AI!</div>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-/* Floating arrow container */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #00bfff;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  color: #fff;
+  margin: 0;
+  font-size: 32px;
+}
+
+header p {
+  color: #e0f7ff;
+  margin-top: 5px;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  color: #00bfff;
+  margin-bottom: 40px;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #00bfff;
+  border-radius: 18px;
+  padding: 25px;
+  width: 280px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(0,191,255,0.2);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 25px rgba(0,191,255,0.3);
+}
+
+.card h3 {
+  color: #00bfff;
+}
+
+/* CTA */
+.cta {
+  background: #00bfff;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+/* Footer */
+footer {
+  background: #00bfff;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  margin-top: 60px;
+}
+
+/* Floating chatbot arrow */
 #chatbot-arrow {
   position: fixed;
-  bottom: 90px; 
+  bottom: 90px;
   right: 30px;
   width: 60px;
   height: 60px;
-  z-index: 100000; 
+  z-index: 99999;
   cursor: pointer;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: #00bfff;
-  box-shadow: 0 0 20px rgba(0,191,255,0.6);
-  animation: bounce 1.2s infinite, glow 2s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(0,191,255,0.7);
 }
 
-/* Arrow SVG */
 #chatbot-arrow svg {
   width: 30px;
   height: 30px;
@@ -37,50 +118,120 @@
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transform: rotate(45deg);
+  animation: arrowBounce 1.2s infinite;
 }
 
-/* Bounce animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0) rotate(45deg); }
+@keyframes arrowBounce {
+  0%,100% { transform: translateY(0) rotate(45deg); }
   50% { transform: translateY(-10px) rotate(45deg); }
-}
-
-/* Glow effect */
-@keyframes glow {
-  0% { box-shadow: 0 0 15px rgba(0,191,255,0.6); }
-  100% { box-shadow: 0 0 35px rgba(0,191,255,1); }
 }
 
 /* Tooltip */
 #chatbot-tooltip {
   position: fixed;
   bottom: 160px;
-  right: 25px;
+  right: 20px;
+  z-index: 99999;
+  background: #fff;
   color: #00bfff;
-  font-weight: bold;
-  text-shadow: 0 0 10px #00bfff;
-  z-index: 100000;
+  font-weight: 600;
   font-size: 14px;
-  animation: pulse 1.5s infinite;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 5px 10px;
+  padding: 6px 12px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,191,255,0.5);
+  box-shadow: 0 0 15px rgba(0,191,255,0.6);
+  animation: tooltipPulse 1.5s infinite;
 }
 
-/* Tooltip pulse */
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.7; }
+@keyframes tooltipPulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
+</head>
+
+<body>
+
+<header>
+  <h1>NextGen Coaching Institute</h1>
+  <p>Empowering Students for a Smarter Future</p>
+</header>
+
+<section>
+  <h2>About Us</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">
+    NextGen Coaching Institute provides expert coaching for competitive exams,
+    IT skills, and career growth with 24/7 AI-powered student support.
+  </p>
+</section>
+
+<section>
+  <h2>Our Courses</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>IT & Programming</h3>
+      <p>Python, AI, Web Development & Data Science training.</p>
+    </div>
+    <div class="card">
+      <h3>Competitive Exams</h3>
+      <p>Government exams and aptitude test preparation.</p>
+    </div>
+    <div class="card">
+      <h3>Career Guidance</h3>
+      <p>CV reviews, mentoring, and interview prep.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Have Questions?</h2>
+  <p>Click the chat icon below to talk with our AI assistant.</p>
+</section>
+
+<footer>
+  © 2025 NextGen Coaching Institute | All Rights Reserved
+</footer>
+
+<!-- Floating Chatbot Arrow -->
+<div id="chatbot-arrow" onclick="openChat()">
+  <svg viewBox="0 0 24 24">
+    <line x1="12" y1="2" x2="12" y2="22"></line>
+    <line x1="5" y1="15" x2="12" y2="22"></line>
+    <line x1="19" y1="15" x2="12" y2="22"></line>
+  </svg>
+</div>
+
+<div id="chatbot-tooltip">Click to Chat with AI</div>
+
+<!-- Chatbase -->
+<script>
+(function(){
+  if(!window.chatbase){
+    window.chatbase = (...args)=>window.chatbase.q.push(args);
+    window.chatbase.q = [];
+  }
+  const s = document.createElement("script");
+  s.src = "https://www.chatbase.co/embed.min.js";
+  s.id = "ZDUqo-DLpcCe109f10aKx";
+  s.domain = "www.chatbase.co";
+  document.body.appendChild(s);
+})();
+</script>
 
 <script>
-function openChat() {
+function openChat(){
   if(window.chatbase){
-    window.chatbase('open'); // Opens chatbot
+    window.chatbase("open");
   }
 }
 </script>
-vvv
+
+</body>
+</html>
