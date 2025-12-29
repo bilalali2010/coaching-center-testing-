@@ -5,38 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NextGen Coaching Institute</title>
 
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #f9f9f9;
+  background: #f4f7fb;
   color: #333;
 }
 
-/* Header */
-header {
-  background: #00bfff;
-  padding: 25px;
+/* HERO */
+.hero {
+  background: linear-gradient(rgba(0,191,255,0.8), rgba(0,191,255,0.8)),
+  url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
+  padding: 90px 20px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-header h1 {
   color: #fff;
-  margin: 0;
-  font-size: 32px;
 }
 
-header p {
-  color: #e0f7ff;
-  margin-top: 5px;
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: auto;
 }
 
 /* Sections */
 section {
-  padding: 60px 20px;
+  padding: 70px 20px;
   max-width: 1100px;
   margin: auto;
 }
@@ -45,6 +50,14 @@ h2 {
   text-align: center;
   color: #00bfff;
   margin-bottom: 40px;
+}
+
+/* About */
+.about p {
+  text-align: center;
+  max-width: 850px;
+  margin: auto;
+  font-size: 16px;
 }
 
 /* Cards */
@@ -56,32 +69,67 @@ h2 {
 }
 
 .card {
-  background: #ffffff;
-  border: 1px solid #00bfff;
-  border-radius: 18px;
-  padding: 25px;
-  width: 280px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  width: 290px;
   text-align: center;
   transition: 0.3s;
-  box-shadow: 0 4px 15px rgba(0,191,255,0.2);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 25px rgba(0,191,255,0.3);
+  transform: translateY(-8px);
+}
+
+.card i {
+  font-size: 42px;
+  color: #00bfff;
+  margin-bottom: 15px;
 }
 
 .card h3 {
   color: #00bfff;
+  margin-bottom: 10px;
+}
+
+/* Why Choose Us */
+.features {
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 50px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature {
+  width: 250px;
+  text-align: center;
+}
+
+.feature i {
+  font-size: 38px;
+  color: #00bfff;
+  margin-bottom: 12px;
 }
 
 /* CTA */
 .cta {
-  background: #00bfff;
+  background: linear-gradient(135deg, #00bfff, #009acd);
   color: #fff;
-  padding: 40px;
+  padding: 60px 20px;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 25px;
+}
+
+.cta h2 {
+  color: #fff;
 }
 
 /* Footer */
@@ -121,40 +169,28 @@ footer {
   animation: arrowBounce 1.2s infinite;
 }
 
-/* Arrow bounce + correct direction (DOWN-RIGHT) */
 @keyframes arrowBounce {
-  0%, 100% {
-    transform: translateY(0) rotate(-45deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(-45deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(-45deg); }
+  50% { transform: translateY(-10px) rotate(-45deg); }
 }
 
-/* Tooltip */
 #chatbot-tooltip {
   position: fixed;
   bottom: 185px;
   right: 25px;
   z-index: 99999;
-  background: #ffffff;
+  background: #fff;
   color: #00bfff;
   font-weight: 600;
   font-size: 14px;
   padding: 6px 12px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,191,255,0.6);
-  animation: tooltipPulse 1.5s infinite;
-}
-
-@keyframes tooltipPulse {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0.6; }
 }
 
 /* Responsive */
 @media(max-width: 900px) {
-  .cards {
+  .cards, .feature-grid {
     flex-direction: column;
     align-items: center;
   }
@@ -164,40 +200,71 @@ footer {
 
 <body>
 
-<header>
+<!-- HERO -->
+<div class="hero">
   <h1>NextGen Coaching Institute</h1>
-  <p>Empowering Students for a Smarter Future</p>
-</header>
+  <p>Empowering Students with Quality Education, Skills & AI-Powered Learning</p>
+</div>
 
-<section>
+<!-- ABOUT -->
+<section class="about">
   <h2>About Us</h2>
-  <p style="text-align:center; max-width:800px; margin:auto;">
-    NextGen Coaching Institute provides expert coaching for competitive exams,
-    IT skills, and career growth with 24/7 AI-powered student support.
+  <p>
+    NextGen Coaching Institute is committed to academic excellence, career growth,
+    and modern skill development. We combine expert teachers with AI-powered
+    student support to ensure success.
   </p>
 </section>
 
+<!-- COURSES -->
 <section>
   <h2>Our Courses</h2>
   <div class="cards">
     <div class="card">
+      <i class="fa-solid fa-laptop-code"></i>
       <h3>IT & Programming</h3>
-      <p>Python, AI, Web Development & Data Science training.</p>
+      <p>Python, AI, Web Development & Data Science.</p>
     </div>
     <div class="card">
+      <i class="fa-solid fa-book-open-reader"></i>
       <h3>Competitive Exams</h3>
-      <p>Government exams and aptitude test preparation.</p>
+      <p>Government exams & aptitude preparation.</p>
     </div>
     <div class="card">
+      <i class="fa-solid fa-briefcase"></i>
       <h3>Career Guidance</h3>
-      <p>CV reviews, mentoring, and interview prep.</p>
+      <p>CV reviews, mentoring & interview prep.</p>
     </div>
   </div>
 </section>
 
+<!-- WHY CHOOSE US -->
+<section class="features">
+  <h2>Why Choose Us?</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <i class="fa-solid fa-chalkboard-user"></i>
+      <p>Experienced Faculty</p>
+    </div>
+    <div class="feature">
+      <i class="fa-solid fa-robot"></i>
+      <p>24/7 AI Student Support</p>
+    </div>
+    <div class="feature">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <p>Proven Results</p>
+    </div>
+    <div class="feature">
+      <i class="fa-solid fa-users"></i>
+      <p>Student-Centered Learning</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta">
   <h2>Have Questions?</h2>
-  <p>Click the chat icon below to talk with our AI assistant.</p>
+  <p>Click the chat icon below to talk with our AI assistant instantly.</p>
 </section>
 
 <footer>
@@ -213,7 +280,7 @@ footer {
   </svg>
 </div>
 
-<div id="chatbot-tooltip">Click to Chat with AI</div>
+<div id="chatbot-tooltip">Chat with AI</div>
 
 <!-- Chatbase -->
 <script>
@@ -228,9 +295,6 @@ footer {
   s.domain = "www.chatbase.co";
   document.body.appendChild(s);
 })();
-</script>
-
-<script>
 function openChat(){
   if(window.chatbase){
     window.chatbase("open");
