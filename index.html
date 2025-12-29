@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NextGen Coaching Institute</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
@@ -19,27 +16,24 @@ body {
   color: #333;
 }
 
-/* HERO */
 .hero {
-  background: linear-gradient(rgba(0,191,255,0.8), rgba(0,191,255,0.8)),
+  background: linear-gradient(rgba(0,191,255,0.85), rgba(0,191,255,0.85)),
   url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
-  padding: 90px 20px;
+  padding: 100px 20px;
   text-align: center;
   color: #fff;
 }
 
 .hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
+  font-size: 44px;
 }
 
 .hero p {
-  font-size: 18px;
-  max-width: 700px;
+  max-width: 800px;
   margin: auto;
+  font-size: 18px;
 }
 
-/* Sections */
 section {
   padding: 70px 20px;
   max-width: 1100px;
@@ -52,14 +46,6 @@ h2 {
   margin-bottom: 40px;
 }
 
-/* About */
-.about p {
-  text-align: center;
-  max-width: 850px;
-  margin: auto;
-  font-size: 16px;
-}
-
 /* Cards */
 .cards {
   display: flex;
@@ -70,12 +56,12 @@ h2 {
 
 .card {
   background: #fff;
-  border-radius: 20px;
-  padding: 30px 25px;
-  width: 290px;
+  border-radius: 22px;
+  padding: 30px;
+  width: 300px;
   text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
   transition: 0.3s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .card:hover {
@@ -90,46 +76,59 @@ h2 {
 
 .card h3 {
   color: #00bfff;
-  margin-bottom: 10px;
 }
 
-/* Why Choose Us */
-.features {
+/* Info Blocks */
+.info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.info {
+  width: 320px;
   background: #ffffff;
-  border-radius: 25px;
-  padding: 50px 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
 }
 
-.feature-grid {
+.info h3 {
+  color: #00bfff;
+}
+
+/* Stats */
+.stats {
+  background: linear-gradient(135deg, #00bfff, #009acd);
+  color: #fff;
+  border-radius: 30px;
+  padding: 60px 20px;
+}
+
+.stat-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
 }
 
-.feature {
-  width: 250px;
+.stat {
   text-align: center;
 }
 
-.feature i {
-  font-size: 38px;
-  color: #00bfff;
-  margin-bottom: 12px;
+.stat h1 {
+  font-size: 42px;
+  margin-bottom: 5px;
 }
 
 /* CTA */
 .cta {
-  background: linear-gradient(135deg, #00bfff, #009acd);
-  color: #fff;
+  background: #ffffff;
+  border-radius: 30px;
   padding: 60px 20px;
   text-align: center;
-  border-radius: 25px;
-}
-
-.cta h2 {
-  color: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
 /* Footer */
@@ -141,56 +140,9 @@ footer {
   margin-top: 60px;
 }
 
-/* ================= CHATBOT ARROW ================= */
-#chatbot-arrow {
-  position: fixed;
-  bottom: 110px;
-  right: 35px;
-  width: 60px;
-  height: 60px;
-  z-index: 99999;
-  cursor: pointer;
-  border-radius: 50%;
-  background: #00bfff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 25px rgba(0,191,255,0.7);
-}
-
-#chatbot-arrow svg {
-  width: 30px;
-  height: 30px;
-  stroke: #fff;
-  stroke-width: 3;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  animation: arrowBounce 1.2s infinite;
-}
-
-@keyframes arrowBounce {
-  0%, 100% { transform: translateY(0) rotate(-45deg); }
-  50% { transform: translateY(-10px) rotate(-45deg); }
-}
-
-#chatbot-tooltip {
-  position: fixed;
-  bottom: 185px;
-  right: 25px;
-  z-index: 99999;
-  background: #fff;
-  color: #00bfff;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,191,255,0.6);
-}
-
 /* Responsive */
-@media(max-width: 900px) {
-  .cards, .feature-grid {
+@media(max-width:900px){
+  .cards, .info-grid, .stat-grid {
     flex-direction: column;
     align-items: center;
   }
@@ -203,104 +155,131 @@ footer {
 <!-- HERO -->
 <div class="hero">
   <h1>NextGen Coaching Institute</h1>
-  <p>Empowering Students with Quality Education, Skills & AI-Powered Learning</p>
+  <p>
+    A modern coaching institute dedicated to academic excellence, competitive success,
+    and future-ready skills through expert teaching and AI-powered student support.
+  </p>
 </div>
 
 <!-- ABOUT -->
-<section class="about">
-  <h2>About Us</h2>
-  <p>
-    NextGen Coaching Institute is committed to academic excellence, career growth,
-    and modern skill development. We combine expert teachers with AI-powered
-    student support to ensure success.
+<section>
+  <h2>Who We Are</h2>
+  <p style="text-align:center; max-width:900px; margin:auto;">
+    NextGen Coaching Institute is a results-oriented educational institute committed to
+    shaping confident, skilled, and successful students. We focus on conceptual clarity,
+    disciplined preparation, and continuous mentorship. Our institute bridges the gap
+    between traditional teaching and modern learning technologies to ensure every
+    student reaches their full potential.
   </p>
 </section>
 
-<!-- COURSES -->
+<!-- VISION & MISSION -->
 <section>
-  <h2>Our Courses</h2>
-  <div class="cards">
-    <div class="card">
-      <i class="fa-solid fa-laptop-code"></i>
-      <h3>IT & Programming</h3>
-      <p>Python, AI, Web Development & Data Science.</p>
+  <h2>Our Vision & Mission</h2>
+  <div class="info-grid">
+    <div class="info">
+      <h3>🎯 Our Vision</h3>
+      <p>
+        To become a leading coaching institute recognized for academic excellence,
+        innovation, and producing confident students who succeed in exams and careers.
+      </p>
     </div>
-    <div class="card">
-      <i class="fa-solid fa-book-open-reader"></i>
-      <h3>Competitive Exams</h3>
-      <p>Government exams & aptitude preparation.</p>
-    </div>
-    <div class="card">
-      <i class="fa-solid fa-briefcase"></i>
-      <h3>Career Guidance</h3>
-      <p>CV reviews, mentoring & interview prep.</p>
+    <div class="info">
+      <h3>🚀 Our Mission</h3>
+      <p>
+        Our mission is to provide high-quality education through expert faculty,
+        structured learning plans, regular assessments, and personalized guidance.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- WHY CHOOSE US -->
-<section class="features">
-  <h2>Why Choose Us?</h2>
-  <div class="feature-grid">
-    <div class="feature">
-      <i class="fa-solid fa-chalkboard-user"></i>
-      <p>Experienced Faculty</p>
+<!-- COURSES -->
+<section>
+  <h2>Programs We Offer</h2>
+  <div class="cards">
+    <div class="card">
+      <i class="fa-solid fa-laptop-code"></i>
+      <h3>IT & Programming</h3>
+      <p>
+        Practical training in Python, Artificial Intelligence, Web Development,
+        and modern technologies aligned with industry demand.
+      </p>
     </div>
-    <div class="feature">
-      <i class="fa-solid fa-robot"></i>
-      <p>24/7 AI Student Support</p>
+    <div class="card">
+      <i class="fa-solid fa-book-open-reader"></i>
+      <h3>Competitive Exams</h3>
+      <p>
+        Focused preparation for government and entry-level competitive exams with
+        practice tests, strategies, and exam-oriented guidance.
+      </p>
     </div>
-    <div class="feature">
-      <i class="fa-solid fa-graduation-cap"></i>
-      <p>Proven Results</p>
+    <div class="card">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>Career Development</h3>
+      <p>
+        Career counseling, CV building, interview preparation, and mentorship
+        to help students make confident career decisions.
+      </p>
     </div>
-    <div class="feature">
-      <i class="fa-solid fa-users"></i>
-      <p>Student-Centered Learning</p>
+  </div>
+</section>
+
+<!-- TEACHING METHODOLOGY -->
+<section>
+  <h2>Our Teaching Methodology</h2>
+  <div class="info-grid">
+    <div class="info">
+      <h3>📘 Concept-Based Learning</h3>
+      <p>We focus on building strong fundamentals instead of rote memorization.</p>
+    </div>
+    <div class="info">
+      <h3>📝 Regular Assessments</h3>
+      <p>Weekly tests and performance analysis to track student progress.</p>
+    </div>
+    <div class="info">
+      <h3>🤖 AI-Powered Support</h3>
+      <p>24/7 AI assistant to answer student questions and provide instant help.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <h2 style="color:white;">Our Impact</h2>
+  <div class="stat-grid">
+    <div class="stat">
+      <h1>8+</h1>
+      <p>Years of Excellence</p>
+    </div>
+    <div class="stat">
+      <h1>2500+</h1>
+      <p>Students Trained</p>
+    </div>
+    <div class="stat">
+      <h1>90%</h1>
+      <p>Success Rate</p>
+    </div>
+    <div class="stat">
+      <h1>24/7</h1>
+      <p>Student Support</p>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Have Questions?</h2>
-  <p>Click the chat icon below to talk with our AI assistant instantly.</p>
+  <h2>Start Your Journey with Confidence</h2>
+  <p>
+    Whether you are preparing for exams, learning new skills, or planning your career,
+    NextGen Coaching Institute is here to guide you at every step.
+  </p>
+  <p><strong>Click the chat icon below to talk with our AI assistant.</strong></p>
 </section>
 
 <footer>
-  © 2025 NextGen Coaching Institute | All Rights Reserved
+  © 2025 NextGen Coaching Institute | Excellence in Education
 </footer>
-
-<!-- Floating Chatbot Arrow -->
-<div id="chatbot-arrow" onclick="openChat()">
-  <svg viewBox="0 0 24 24">
-    <line x1="12" y1="2" x2="12" y2="22"></line>
-    <line x1="5" y1="15" x2="12" y2="22"></line>
-    <line x1="19" y1="15" x2="12" y2="22"></line>
-  </svg>
-</div>
-
-<div id="chatbot-tooltip">Chat with AI</div>
-
-<!-- Chatbase -->
-<script>
-(function(){
-  if(!window.chatbase){
-    window.chatbase = (...args)=>window.chatbase.q.push(args);
-    window.chatbase.q = [];
-  }
-  const s = document.createElement("script");
-  s.src = "https://www.chatbase.co/embed.min.js";
-  s.id = "ZDUqo-DLpcCe109f10aKx";
-  s.domain = "www.chatbase.co";
-  document.body.appendChild(s);
-})();
-function openChat(){
-  if(window.chatbase){
-    window.chatbase("open");
-  }
-}
-</script>
 
 </body>
 </html>
