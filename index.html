@@ -1,107 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextGen Coaching Institute</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Coaching Institute</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-<style>
-body { margin:0; font-family:'Poppins', sans-serif; background:#f4f7fb; color:#333; }
-.hero { background: linear-gradient(rgba(0,191,255,0.85), rgba(0,191,255,0.85)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat; padding:110px 20px; text-align:center; color:#fff; }
-.hero h1 { font-size:46px; }
-.hero p { max-width:850px; margin:auto; font-size:18px; }
-footer { background:#00bfff; text-align:center; padding:25px; color:#fff; margin-top:60px; }
+    <style>
+        /* ================= GENERAL STYLES ================= */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f4f7fb;
+            color: #333;
+        }
 
-#chatbot-container { position:fixed; bottom:20px; right:20px; z-index:9999; }
-#chatbot-bubble { width:60px; height:60px; background:#00bfff; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.25); transition: transform 0.3s; }
-#chatbot-bubble:hover { transform:scale(1.1); }
+        section {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-#chat-overlay { position:fixed; bottom:90px; right:20px; width:350px; height:450px; background:#fff; border-radius:16px; box-shadow:0 12px 30px rgba(0,0,0,0.3); display:none; flex-direction:column; overflow:hidden; z-index:9998; }
-#chat-header { background:#00bfff; color:#fff; padding:12px 15px; display:flex; justify-content:space-between; align-items:center; font-weight:bold; }
-#chat-messages { flex:1; padding:10px; overflow-y:auto; display:flex; flex-direction:column; }
-.message { margin-bottom:10px; padding:8px 12px; border-radius:12px; max-width:80%; word-wrap:break-word; }
-.user-message { background:#00bfff; color:#fff; align-self:flex-end; }
-.bot-message { background:#f1f1f1; color:#333; align-self:flex-start; }
-#chat-input-container { display:flex; border-top:1px solid #ccc; }
-#chat-input { flex:1; border:none; padding:10px; font-size:14px; }
-#chat-send { background:#00bfff; color:#fff; border:none; padding:0 15px; cursor:pointer; }
+        h2 {
+            text-align: center;
+            color: #00bfff;
+            margin-bottom: 40px;
+        }
 
-@media (max-width:768px) {
-  #chat-overlay { width:90%; right:5%; bottom:80px; }
-  #chatbot-bubble { width:50px; height:50px; font-size:22px; }
-}
-</style>
+        /* ================= HERO ================= */
+        .hero {
+            background: linear-gradient(rgba(0,191,255,0.85), rgba(0,191,255,0.85)),
+                        url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
+            padding: 100px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        /* ================= CARDS ================= */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 22px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card i {
+            font-size: 42px;
+            color: #00bfff;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #00bfff;
+        }
+
+        /* ================= INFO GRID ================= */
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .info {
+            width: 320px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+        }
+
+        .info h3 {
+            color: #00bfff;
+        }
+
+        /* ================= STATS ================= */
+        .stats {
+            background: linear-gradient(135deg, #00bfff, #009acd);
+            color: #fff;
+            border-radius: 30px;
+            padding: 60px 20px;
+        }
+
+        .stat-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h1 {
+            font-size: 42px;
+            margin-bottom: 5px;
+        }
+
+        /* ================= CTA ================= */
+        .cta {
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #00bfff;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            margin-top: 60px;
+        }
+
+        /* ================= CHATBOT ================= */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        #chatbot-bubble {
+            width: 60px;
+            height: 60px;
+            background: #00bfff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        #chat-overlay {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            z-index: 9998;
+        }
+
+        #chat-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 500px) {
+            #chat-overlay {
+                width: 90%;
+                height: 60%;
+                bottom: 80px;
+                right: 5%;
+            }
+        }
+
+        @media(max-width:900px){
+            .cards, .info-grid, .stat-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>NextGen Coaching Institute</h1>
+        <p>A modern coaching institute dedicated to academic excellence, competitive success, and future-ready skills through expert teaching and AI-powered student support.</p>
+    </div>
 
-<div class="hero">
-  <h1>NextGen Coaching Institute</h1>
-  <p>Empowering students with strong academics, competitive exam preparation, career-focused skills, and AI-powered learning support.</p>
-</div>
+    <!-- ABOUT -->
+    <section>
+        <h2>Who We Are</h2>
+        <p style="text-align:center; max-width:900px; margin:auto;">
+            NextGen Coaching Institute is a results-oriented educational institute committed to shaping confident, skilled, and successful students. 
+            We focus on conceptual clarity, disciplined preparation, and continuous mentorship. Our institute bridges the gap between traditional teaching 
+            and modern learning technologies to ensure every student reaches their full potential.
+        </p>
+    </section>
 
-<footer>© 2025 NextGen Coaching Institute | Building Futures Through Education</footer>
+    <!-- VISION & MISSION -->
+    <section>
+        <h2>Our Vision & Mission</h2>
+        <div class="info-grid">
+            <div class="info">
+                <h3>🎯 Our Vision</h3>
+                <p>To become a leading coaching institute recognized for academic excellence, innovation, and producing confident students who succeed in exams and careers.</p>
+            </div>
+            <div class="info">
+                <h3>🚀 Our Mission</h3>
+                <p>Our mission is to provide high-quality education through expert faculty, structured learning plans, regular assessments, and personalized guidance.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- Chatbot Overlay -->
-<div id="chatbot-container">
-  <div id="chatbot-bubble">💬</div>
-</div>
+    <!-- COURSES -->
+    <section>
+        <h2>Programs We Offer</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>IT & Programming</h3>
+                <p>Practical training in Python, Artificial Intelligence, Web Development, and modern technologies aligned with industry demand.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <h3>Competitive Exams</h3>
+                <p>Focused preparation for government and entry-level competitive exams with practice tests, strategies, and exam-oriented guidance.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>Career Development</h3>
+                <p>Career counseling, CV building, interview preparation, and mentorship to help students make confident career decisions.</p>
+            </div>
+        </div>
+    </section>
 
-<div id="chat-overlay">
-  <div id="chat-header">
-    NextGen AI Assistant
-    <span id="chat-close" style="cursor:pointer;">✖</span>
-  </div>
-  <div id="chat-messages"></div>
-  <div id="chat-input-container">
-    <input type="text" id="chat-input" placeholder="Type your message...">
-    <button id="chat-send">Send</button>
-  </div>
-</div>
+    <!-- TEACHING METHODOLOGY -->
+    <section>
+        <h2>Our Teaching Methodology</h2>
+        <div class="info-grid">
+            <div class="info">
+                <h3>📘 Concept-Based Learning</h3>
+                <p>We focus on building strong fundamentals instead of rote memorization.</p>
+            </div>
+            <div class="info">
+                <h3>📝 Regular Assessments</h3>
+                <p>Weekly tests and performance analysis to track student progress.</p>
+            </div>
+            <div class="info">
+                <h3>🤖 AI-Powered Support</h3>
+                <p>24/7 AI assistant to answer student questions and provide instant help.</p>
+            </div>
+        </div>
+    </section>
 
-<script>
-const bubble = document.getElementById('chatbot-bubble');
-const overlay = document.getElementById('chat-overlay');
-const closeBtn = document.getElementById('chat-close');
-const messages = document.getElementById('chat-messages');
-const input = document.getElementById('chat-input');
-const sendBtn = document.getElementById('chat-send');
+    <!-- STATS -->
+    <section class="stats">
+        <h2 style="color:white;">Our Impact</h2>
+        <div class="stat-grid">
+            <div class="stat"><h1>8+</h1><p>Years of Excellence</p></div>
+            <div class="stat"><h1>2500+</h1><p>Students Trained</p></div>
+            <div class="stat"><h1>90%</h1><p>Success Rate</p></div>
+            <div class="stat"><h1>24/7</h1><p>Student Support</p></div>
+        </div>
+    </section>
 
-bubble.onclick = () => overlay.style.display = "flex";
-closeBtn.onclick = () => overlay.style.display = "none";
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Start Your Journey with Confidence</h2>
+        <p><strong>Click the chat icon below to talk with our AI assistant.</strong></p>
+    </section>
 
-function addMessage(text, sender){
-  const msg = document.createElement('div');
-  msg.classList.add('message', sender==='user'?'user-message':'bot-message');
-  msg.innerText = text;
-  messages.appendChild(msg);
-  messages.scrollTop = messages.scrollHeight;
-}
+    <!-- FOOTER -->
+    <footer>
+        © 2025 NextGen Coaching Institute | Excellence in Education
+    </footer>
 
-async function sendMessage(){
-  const text = input.value.trim();
-  if(!text) return;
-  addMessage(text,'user');
-  input.value='';
+    <!-- ====== Floating Chatbot Bubble ====== -->
+    <div id="chatbot-container">
+        <div id="chatbot-bubble">💬</div>
+    </div>
 
-  try{
-    const res = await fetch('http://chat-with-nextgen-coaching.streamlit.app/', {  // <- your backend URL
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ message:text })
-    });
-    const data = await res.json();
-    addMessage(data.reply,'bot');
-  } catch(err){
-    console.error(err);
-    addMessage("Sorry, something went wrong!",'bot');
-  }
-}
+    <div id="chat-overlay">
+        <iframe id="chat-frame" src="https://chat-with-nextgen-coaching.streamlit.app/?embed=true" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
 
-sendBtn.onclick = sendMessage;
-input.addEventListener('keypress', e => { if(e.key==='Enter') sendMessage(); });
-</script>
+    <script>
+        const bubble = document.getElementById('chatbot-bubble');
+        const overlay = document.getElementById('chat-overlay');
+
+        bubble.addEventListener('click', () => {
+            overlay.style.display = (overlay.style.display === "block") ? "none" : "block";
+        });
+    </script>
 </body>
 </html>
