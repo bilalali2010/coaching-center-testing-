@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NextGen Coaching Institute</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
-/* ===== GENERAL STYLES ===== */
+/* ===== GENERAL ===== */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -47,7 +48,7 @@ h2 {
     font-size: 18px;
 }
 
-/* ===== CARDS, INFO, STATS ===== */
+/* ===== CARDS ===== */
 .cards, .info-grid, .stat-grid {
     display: flex;
     flex-wrap: wrap;
@@ -62,37 +63,16 @@ h2 {
     width: 300px;
     text-align: center;
     box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    transition: 0.3s;
 }
-
-.card:hover { transform: translateY(-8px); }
 
 .card i {
     font-size: 42px;
     color: #00bfff;
-    margin-bottom: 15px;
 }
 
-.card h3, .info h3 {
-    color: #00bfff;
-}
+.info { width: 320px; }
 
-.info {
-    width: 320px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-}
-
-.stat {
-    text-align: center;
-    color: #fff;
-}
-
-.stat h1 {
-    font-size: 42px;
-    margin-bottom: 5px;
-}
-
-/* ===== STATS SECTION ===== */
+/* ===== STATS ===== */
 .stats {
     background: linear-gradient(135deg, #00bfff, #009acd);
     color: #fff;
@@ -100,9 +80,11 @@ h2 {
     padding: 60px 20px;
 }
 
+.stat h1 { font-size: 42px; }
+
 /* ===== CTA ===== */
 .cta {
-    background: #ffffff;
+    background: #fff;
     border-radius: 30px;
     padding: 60px 20px;
     text-align: center;
@@ -118,7 +100,9 @@ footer {
     margin-top: 60px;
 }
 
-/* ===== FLOATING CHATBOT ===== */
+/* =====================================================
+   FLOATING CHATBOT (STREAMLIT STYLE – SAME AS IMAGE)
+   ===================================================== */
 #chatbot-container {
     position: fixed;
     bottom: 20px;
@@ -129,35 +113,30 @@ footer {
 #chatbot-bubble {
     width: 60px;
     height: 60px;
-    background: linear-gradient(90deg, #00bfff, #0ff);
-    color: #0d111f;
+    background: linear-gradient(135deg, #00bfff, #00ffd5);
+    color: #002b36;
     font-size: 28px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,191,255,0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 25px rgba(0,191,255,0.5);
 }
 
-#chatbot-bubble:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 25px rgba(0,191,255,0.6);
-}
-
-/* Chat Overlay (Popup) */
+/* ===== CHAT POPUP ===== */
 #chat-overlay {
     display: none;
     position: fixed;
-    bottom: 90px; /* above bubble */
+    bottom: 90px;
     right: 20px;
-    width: 400px;
-    max-width: 90%;
-    height: 600px;
-    max-height: 90%;
-    border-radius: 15px;
-    box-shadow: 0 4px 25px rgba(0,191,255,0.6);
+
+    width: 380px;
+    height: 72vh;
+
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     overflow: hidden;
     z-index: 9998;
 }
@@ -174,146 +153,105 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-    .card, .info, .stat {
-        width: 90%;
-        max-width: 380px;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero {
-        padding: 60px 15px;
-    }
-    .hero h1 {
-        font-size: 28px;
-    }
-    .hero p {
-        font-size: 15px;
-    }
 }
 
 @media (max-width: 500px) {
     #chat-overlay {
-        width: 95%;
-        height: 60%;
+        width: 96%;
+        height: 80vh;
+        right: 2%;
         bottom: 80px;
-        right: 2.5%;
-        border-radius: 15px;
+        border-radius: 16px;
     }
-    .cta, .stats {
-        padding: 40px 15px;
-    }
+
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 15px; }
 }
 </style>
 </head>
+
 <body>
 
 <!-- HERO -->
 <div class="hero">
     <h1>NextGen Coaching Institute</h1>
-    <p>A modern coaching institute dedicated to academic excellence, competitive success, and future-ready skills through expert teaching and AI-powered student support.</p>
+    <p>A modern coaching institute with AI-powered student support.</p>
 </div>
 
-<!-- ABOUT -->
 <section>
     <h2>Who We Are</h2>
     <p style="text-align:center; max-width:900px; margin:auto;">
-        NextGen Coaching Institute is a results-oriented educational institute committed to shaping confident, skilled, and successful students. 
-        We focus on conceptual clarity, disciplined preparation, and continuous mentorship.
+        NextGen Coaching Institute focuses on conceptual clarity, discipline, and mentorship.
     </p>
 </section>
 
-<!-- VISION & MISSION -->
 <section>
     <h2>Our Vision & Mission</h2>
     <div class="info-grid">
         <div class="info">
-            <h3>🎯 Our Vision</h3>
-            <p>To become a leading coaching institute recognized for academic excellence, innovation, and producing confident students.</p>
+            <h3>🎯 Vision</h3>
+            <p>To produce confident, skilled students.</p>
         </div>
         <div class="info">
-            <h3>🚀 Our Mission</h3>
-            <p>Provide high-quality education through expert faculty, structured learning plans, regular assessments, and personalized guidance.</p>
+            <h3>🚀 Mission</h3>
+            <p>Deliver quality education with AI-powered guidance.</p>
         </div>
     </div>
 </section>
 
-<!-- COURSES -->
 <section>
-    <h2>Programs We Offer</h2>
+    <h2>Programs</h2>
     <div class="cards">
         <div class="card">
             <i class="fa-solid fa-laptop-code"></i>
-            <h3>IT & Programming</h3>
-            <p>Practical training in Python, AI, Web Development, and modern technologies.</p>
+            <h3>IT & AI</h3>
+            <p>Python, AI, Web Development.</p>
         </div>
         <div class="card">
-            <i class="fa-solid fa-book-open-reader"></i>
+            <i class="fa-solid fa-book"></i>
             <h3>Competitive Exams</h3>
-            <p>Focused preparation for government and entry-level exams with strategies and tests.</p>
-        </div>
-        <div class="card">
-            <i class="fa-solid fa-briefcase"></i>
-            <h3>Career Development</h3>
-            <p>Career counseling, CV building, interview prep, and mentorship for confident decisions.</p>
+            <p>Focused exam preparation.</p>
         </div>
     </div>
 </section>
 
-<!-- TEACHING METHODOLOGY -->
-<section>
-    <h2>Our Teaching Methodology</h2>
-    <div class="info-grid">
-        <div class="info">
-            <h3>📘 Concept-Based Learning</h3>
-            <p>Building strong fundamentals rather than rote memorization.</p>
-        </div>
-        <div class="info">
-            <h3>📝 Regular Assessments</h3>
-            <p>Weekly tests and performance analysis to track progress.</p>
-        </div>
-        <div class="info">
-            <h3>🤖 AI-Powered Support</h3>
-            <p>24/7 AI assistant to answer questions and provide instant help.</p>
-        </div>
-    </div>
-</section>
-
-<!-- STATS -->
 <section class="stats">
-    <h2 style="color:white;">Our Impact</h2>
+    <h2 style="color:#fff;">Our Impact</h2>
     <div class="stat-grid">
-        <div class="stat"><h1>8+</h1><p>Years of Excellence</p></div>
-        <div class="stat"><h1>2500+</h1><p>Students Trained</p></div>
-        <div class="stat"><h1>90%</h1><p>Success Rate</p></div>
-        <div class="stat"><h1>24/7</h1><p>Student Support</p></div>
+        <div class="stat"><h1>8+</h1><p>Years</p></div>
+        <div class="stat"><h1>2500+</h1><p>Students</p></div>
+        <div class="stat"><h1>24/7</h1><p>AI Support</p></div>
     </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
-    <h2>Start Your Journey with Confidence</h2>
-    <p><strong>Click the chat icon below to talk with our AI assistant.</strong></p>
+    <h2>Need Help?</h2>
+    <p>Click the chat icon to talk to our AI assistant.</p>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    © 2025 NextGen Coaching Institute | Excellence in Education
+    © 2025 NextGen Coaching Institute
 </footer>
 
-<!-- FLOATING CHATBOT -->
+<!-- CHATBOT -->
 <div id="chatbot-container">
     <div id="chatbot-bubble">💬</div>
 </div>
+
 <div id="chat-overlay">
-    <iframe id="chat-frame" src="https://chat-with-nextgen-coaching.streamlit.app/?embed=true"></iframe>
+    <iframe
+        id="chat-frame"
+        src="https://chat-with-nextgen-coaching.streamlit.app/?embed=true">
+    </iframe>
 </div>
 
 <script>
-const bubble = document.getElementById('chatbot-bubble');
-const overlay = document.getElementById('chat-overlay');
-bubble.addEventListener('click', () => {
-    overlay.style.display = (overlay.style.display === "block") ? "none" : "block";
+const bubble = document.getElementById("chatbot-bubble");
+const overlay = document.getElementById("chat-overlay");
+
+bubble.addEventListener("click", () => {
+    overlay.style.display =
+        overlay.style.display === "block" ? "none" : "block";
 });
 </script>
 
