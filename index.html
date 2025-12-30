@@ -296,25 +296,91 @@ footer {
   © 2025 NextGen Coaching Institute | Excellence in Education
 </footer>
 
-<!-- ===== FLOATING CHATBOT ===== -->
+<!-- ====== Floating Chatbot Bubble ====== -->
 <div id="chatbot-container">
-  <div id="chatbot-bubble">💬</div>
+    <div id="chatbot-bubble">💬</div>
 </div>
 
 <div id="chat-overlay">
-  <iframe id="chat-frame" 
-          src="https://chat-with-nextgen-coaching.streamlit.app/?embed=true" 
-          frameborder="0"></iframe>
+    <iframe id="chat-frame" 
+            src="https://custom-chatbot-testing.streamlit.app/?embed=true" 
+            width="100%" height="100%" frameborder="0"></iframe>
 </div>
 
+<!-- ====== Chatbot Styles ====== -->
+<style>
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+#chatbot-bubble {
+    width: 60px;
+    height: 60px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+#chat-overlay {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 9998;
+    background: white;
+}
+
+/* ====== Responsive for mobile devices ====== */
+@media only screen and (max-width: 480px) {
+    #chatbot-container {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    #chatbot-bubble {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    #chat-overlay {
+        width: 90%;
+        height: 400px;
+        bottom: 70px;
+        right: 5%;
+    }
+
+    #chat-frame {
+        width: 100%;
+        height: 100%;
+    }
+}
+</style>
+
+<!-- ====== Chatbot Script ====== -->
 <script>
 const bubble = document.getElementById('chatbot-bubble');
 const overlay = document.getElementById('chat-overlay');
 
 bubble.addEventListener('click', () => {
-    overlay.style.display = overlay.style.display === "block" ? "none" : "block";
+    overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
 });
 </script>
+
 
 </body>
 </html>
