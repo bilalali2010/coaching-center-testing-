@@ -107,39 +107,11 @@ footer {
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-#chat-overlay {
-  display: none;
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 360px;
-  height: 520px;
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-  z-index: 9998;
-}
-
-#chat-header {
-  background: #00bfff;
-  color: #fff;
-  padding: 12px 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-#chat-frame {
-  width: 100%;
-  height: calc(100% - 45px);
-  border: none;
-}
-
 @media (max-width: 768px) {
-  #chat-overlay {
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100%; height: 100%;
-    border-radius: 0;
+  #chatbot-bubble {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
   }
 }
 </style>
@@ -244,27 +216,13 @@ footer {
   <div id="chatbot-bubble">💬</div>
 </div>
 
-<div id="chat-overlay">
-  <div id="chat-header">
-    <strong>NextGen AI Assistant</strong>
-    <span id="close-chat">✖</span>
-  </div>
-  <iframe id="chat-frame"
-    src="https://chat-with-nextgen-coaching.streamlit.app"
-    allow="fullscreen"></iframe>
-</div>
-
 <script>
 const bubble = document.getElementById('chatbot-bubble');
-const overlay = document.getElementById('chat-overlay');
-const closeBtn = document.getElementById('close-chat');
-const iframe = document.getElementById('chat-frame');
 
+// Open chatbot in a new tab
 bubble.onclick = () => {
-  overlay.style.display = "block";
-  iframe.src = iframe.src;
+  window.open('https://chat-with-nextgen-coaching.streamlit.app', '_blank');
 };
-closeBtn.onclick = () => overlay.style.display = "none";
 </script>
 
 </body>
