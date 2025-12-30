@@ -129,35 +129,35 @@ footer {
 #chatbot-bubble {
     width: 60px;
     height: 60px;
-    background: #00bfff;
-    color: white;
-    font-size: 26px;
+    background: linear-gradient(90deg, #00bfff, #0ff);
+    color: #0d111f;
+    font-size: 28px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 15px rgba(0,191,255,0.4);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #chatbot-bubble:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    box-shadow: 0 4px 25px rgba(0,191,255,0.6);
 }
 
-/* Chat Overlay */
+/* Chat Overlay (Popup) */
 #chat-overlay {
     display: none;
     position: fixed;
-    bottom: 90px;
+    bottom: 90px; /* above bubble */
     right: 20px;
-    width: 350px;
+    width: 400px;
     max-width: 90%;
-    height: 500px;
-    max-height: 70%;
+    height: 600px;
+    max-height: 90%;
     border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    box-shadow: 0 4px 25px rgba(0,191,255,0.6);
     overflow: hidden;
     z-index: 9998;
 }
