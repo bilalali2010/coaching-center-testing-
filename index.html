@@ -142,6 +142,8 @@ footer {
   flex: 1;
   padding: 10px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .message {
@@ -212,7 +214,7 @@ footer {
   </p>
 </div>
 
-<!-- Other sections here... (About, Why Choose Us, Faculty, Admission Process, Stats, CTA) -->
+<!-- Other sections like About, Why Choose Us, Faculty, Admission Process, Stats, CTA -->
 
 <footer>
   © 2025 NextGen Coaching Institute | Building Futures Through Education
@@ -256,24 +258,27 @@ function addMessage(text, sender) {
   messages.scrollTop = messages.scrollHeight;
 }
 
-// Simulated chatbot response (replace with API call)
-function getBotResponse(userMsg) {
-  // Example: Replace this with fetch('/api/chat', { method:'POST', body:userMsg }) etc.
-  return "You said: " + userMsg;
-}
-
 // Send message
-function sendMessage() {
+async function sendMessage() {
   const text = input.value.trim();
   if(!text) return;
   addMessage(text, 'user');
   input.value = '';
 
-  // Simulate bot response
-  setTimeout(() => {
-    const botReply = getBotResponse(text);
-    addMessage(botReply, 'bot');
-  }, 500);
+  try {
+    // Call your backend API (replace URL with your Streamlit API endpoint)
+    const res = await fetch('https://chat-with-nextgen-coaching.streamlit.app/api/message', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+
+    const data = await res.json();
+    addMessage(data.reply, 'bot'); // Display AI response
+  } catch(err) {
+    console.error(err);
+    addMessage("Sorry, something went wrong!", 'bot');
+  }
 }
 
 sendBtn.onclick = sendMessage;
