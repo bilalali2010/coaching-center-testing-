@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -21,13 +21,13 @@ body {
 .hero {
   background: linear-gradient(rgba(0,191,255,0.85), rgba(0,191,255,0.85)),
   url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
-  padding: 100px 20px;
+  padding: 110px 20px;
   text-align: center;
   color: #fff;
 }
 
-.hero h1 { font-size: 44px; }
-.hero p { max-width: 800px; margin: auto; font-size: 18px; }
+.hero h1 { font-size: 46px; }
+.hero p { max-width: 850px; margin: auto; font-size: 18px; }
 
 section {
   padding: 70px 20px;
@@ -41,43 +41,23 @@ h2 {
   margin-bottom: 40px;
 }
 
-.cards {
+.cards, .info-grid, .stat-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
 }
 
-.card {
+.card, .info {
   background: #fff;
   border-radius: 22px;
   padding: 30px;
   width: 300px;
   text-align: center;
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: 0.3s;
 }
 
-.card:hover { transform: translateY(-8px); }
 .card i { font-size: 42px; color: #00bfff; margin-bottom: 15px; }
-.card h3 { color: #00bfff; }
-
-.info-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-}
-
-.info {
-  width: 320px;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-}
-
-.info h3 { color: #00bfff; }
 
 .stats {
   background: linear-gradient(135deg, #00bfff, #009acd);
@@ -86,21 +66,7 @@ h2 {
   padding: 60px 20px;
 }
 
-.stat-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat h1 {
-  font-size: 42px;
-  margin-bottom: 5px;
-}
+.stat h1 { font-size: 42px; }
 
 .cta {
   background: #ffffff;
@@ -113,12 +79,12 @@ h2 {
 footer {
   background: #00bfff;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
   color: #fff;
   margin-top: 60px;
 }
 
-/* ================= CHATBOT STYLES ================= */
+/* ================= CHATBOT ================= */
 
 #chatbot-container {
   position: fixed;
@@ -131,51 +97,49 @@ footer {
   width: 60px;
   height: 60px;
   background: #00bfff;
-  color: white;
+  color: #fff;
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-size: 26px;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-/* Chat iframe small popup */
 #chat-overlay {
   display: none;
   position: fixed;
-  bottom: 90px; /* Above bubble */
+  bottom: 90px;
   right: 20px;
-  width: 350px; /* Fixed width */
-  height: 500px; /* Fixed height */
-  border-radius: 15px;
+  width: 360px;
+  height: 520px;
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
   z-index: 9998;
+}
+
+#chat-header {
+  background: #00bfff;
+  color: #fff;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 #chat-frame {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 45px);
   border: none;
 }
 
-/* Mobile adjustments */
-@media (max-width: 500px){
+@media (max-width: 768px) {
   #chat-overlay {
-    width: 90%;
-    height: 60%;
-    bottom: 80px;
-    right: 5%;
-  }
-}
-
-/* Responsive website content */
-@media(max-width:900px){
-  .cards, .info-grid, .stat-grid {
-    flex-direction: column;
-    align-items: center;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    border-radius: 0;
   }
 }
 </style>
@@ -187,8 +151,8 @@ footer {
 <div class="hero">
   <h1>NextGen Coaching Institute</h1>
   <p>
-    A modern coaching institute dedicated to academic excellence, competitive success,
-    and future-ready skills through expert teaching and AI-powered student support.
+    Empowering students with strong academics, competitive exam preparation,
+    career-focused skills, and AI-powered learning support.
   </p>
 </div>
 
@@ -196,128 +160,111 @@ footer {
 <section>
   <h2>Who We Are</h2>
   <p style="text-align:center; max-width:900px; margin:auto;">
-    NextGen Coaching Institute is a results-oriented educational institute committed to
-    shaping confident, skilled, and successful students. We focus on conceptual clarity,
-    disciplined preparation, and continuous mentorship. Our institute bridges the gap
-    between traditional teaching and modern learning technologies to ensure every
-    student reaches their full potential.
+    NextGen Coaching Institute is a forward-thinking educational institute dedicated to
+    academic excellence and career success. We combine experienced faculty, structured
+    learning systems, continuous assessment, and modern technology to help students
+    achieve outstanding results.
   </p>
 </section>
 
-<!-- VISION & MISSION -->
+<!-- WHY CHOOSE US -->
 <section>
-  <h2>Our Vision & Mission</h2>
-  <div class="info-grid">
-    <div class="info">
-      <h3>🎯 Our Vision</h3>
-      <p>
-        To become a leading coaching institute recognized for academic excellence,
-        innovation, and producing confident students who succeed in exams and careers.
-      </p>
-    </div>
-    <div class="info">
-      <h3>🚀 Our Mission</h3>
-      <p>
-        Our mission is to provide high-quality education through expert faculty,
-        structured learning plans, regular assessments, and personalized guidance.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- COURSES -->
-<section>
-  <h2>Programs We Offer</h2>
+  <h2>Why Choose NextGen?</h2>
   <div class="cards">
     <div class="card">
-      <i class="fa-solid fa-laptop-code"></i>
-      <h3>IT & Programming</h3>
-      <p>
-        Practical training in Python, Artificial Intelligence, Web Development,
-        and modern technologies aligned with industry demand.
-      </p>
+      <i class="fa-solid fa-chalkboard-user"></i>
+      <h3>Expert Faculty</h3>
+      <p>Highly qualified teachers with years of academic and competitive exam experience.</p>
     </div>
     <div class="card">
-      <i class="fa-solid fa-book-open-reader"></i>
-      <h3>Competitive Exams</h3>
-      <p>
-        Focused preparation for government and entry-level competitive exams with
-        practice tests, strategies, and exam-oriented guidance.
-      </p>
+      <i class="fa-solid fa-brain"></i>
+      <h3>Smart Learning</h3>
+      <p>Concept-based teaching with problem-solving, real examples, and doubt clearing.</p>
     </div>
     <div class="card">
-      <i class="fa-solid fa-briefcase"></i>
-      <h3>Career Development</h3>
-      <p>
-        Career counseling, CV building, interview preparation, and mentorship
-        to help students make confident career decisions.
-      </p>
+      <i class="fa-solid fa-robot"></i>
+      <h3>AI Support</h3>
+      <p>24/7 AI assistant to help students revise concepts and get instant answers.</p>
     </div>
   </div>
 </section>
 
-<!-- TEACHING METHODOLOGY -->
+<!-- FACULTY -->
 <section>
-  <h2>Our Teaching Methodology</h2>
+  <h2>Our Faculty</h2>
+  <p style="text-align:center; max-width:850px; margin:auto;">
+    Our faculty members are subject specialists with proven teaching methodologies.
+    They mentor students personally, track performance, and focus on continuous
+    improvement through feedback and assessments.
+  </p>
+</section>
+
+<!-- ADMISSION PROCESS -->
+<section>
+  <h2>Admission Process</h2>
   <div class="info-grid">
     <div class="info">
-      <h3>📘 Concept-Based Learning</h3>
-      <p>We focus on building strong fundamentals instead of rote memorization.</p>
+      <h3>📝 Step 1: Inquiry</h3>
+      <p>Contact us or visit the institute to understand courses and guidance.</p>
     </div>
     <div class="info">
-      <h3>📝 Regular Assessments</h3>
-      <p>Weekly tests and performance analysis to track student progress.</p>
+      <h3>📊 Step 2: Assessment</h3>
+      <p>Basic evaluation to recommend the most suitable program.</p>
     </div>
     <div class="info">
-      <h3>🤖 AI-Powered Support</h3>
-      <p>24/7 AI assistant to answer student questions and provide instant help.</p>
+      <h3>🎓 Step 3: Enrollment</h3>
+      <p>Join the program and start your journey toward success.</p>
     </div>
   </div>
 </section>
 
 <!-- STATS -->
 <section class="stats">
-  <h2 style="color:white;">Our Impact</h2>
+  <h2 style="color:white;">Our Achievements</h2>
   <div class="stat-grid">
-    <div class="stat"><h1>8+</h1><p>Years of Excellence</p></div>
+    <div class="stat"><h1>8+</h1><p>Years Experience</p></div>
     <div class="stat"><h1>2500+</h1><p>Students Trained</p></div>
     <div class="stat"><h1>90%</h1><p>Success Rate</p></div>
-    <div class="stat"><h1>24/7</h1><p>Student Support</p></div>
+    <div class="stat"><h1>24/7</h1><p>Learning Support</p></div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Start Your Journey with Confidence</h2>
+  <h2>Start Learning with Confidence</h2>
   <p><strong>Click the chat icon below to talk with our AI assistant.</strong></p>
 </section>
 
 <footer>
-  © 2025 NextGen Coaching Institute | Excellence in Education
+  © 2025 NextGen Coaching Institute | Building Futures Through Education
 </footer>
 
-<!-- ====== Floating Chatbot Bubble ====== -->
+<!-- CHATBOT -->
 <div id="chatbot-container">
-    <div id="chatbot-bubble">💬</div>
+  <div id="chatbot-bubble">💬</div>
 </div>
 
 <div id="chat-overlay">
-    <iframe id="chat-frame" 
-            src="https://chat-with-nextgen-coaching.streamlit.app/?embed=true" 
-            width="100%" height="100%" frameborder="0"></iframe>
+  <div id="chat-header">
+    <strong>NextGen AI Assistant</strong>
+    <span id="close-chat">✖</span>
+  </div>
+  <iframe id="chat-frame"
+    src="https://chat-with-nextgen-coaching.streamlit.app"
+    allow="fullscreen"></iframe>
 </div>
 
 <script>
 const bubble = document.getElementById('chatbot-bubble');
 const overlay = document.getElementById('chat-overlay');
+const closeBtn = document.getElementById('close-chat');
+const iframe = document.getElementById('chat-frame');
 
-bubble.addEventListener('click', () => {
-    if (overlay.style.display === "none" || overlay.style.display === "") {
-        overlay.style.display = "block";
-    } else {
-        overlay.style.display = "none";
-    }
-});
+bubble.onclick = () => {
+  overlay.style.display = "block";
+  iframe.src = iframe.src;
+};
+closeBtn.onclick = () => overlay.style.display = "none";
 </script>
 
 </body>
