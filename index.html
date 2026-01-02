@@ -141,7 +141,7 @@ footer {
     position: fixed;
     bottom: 20px;
     right: 20px;            /* Desktop position */
-    width: 400px;           /* Desktop width */
+    width: 400px;           /* Default desktop width */
     max-width: 30vw;        /* Scales on large screens */
     min-width: 300px;
     height: 600px;
@@ -204,11 +204,11 @@ footer {
 /* ================= MOBILE ADJUSTMENT ================= */
 @media (max-width: 768px) {
     #chat-overlay {
-        width: calc(100vw - 16px);   /* leave 8px margin left/right */
-        height: calc(100vh - 16px);  /* leave 8px margin top/bottom */
-        left: 50%;
-        bottom: 8px;
-        right: auto;
+        width: 95vw;             /* Almost full width */
+        height: 95vh;            /* Almost full height */
+        left: 50%;               /* Center horizontally */
+        bottom: 2.5vh;           /* Small bottom margin */
+        right: auto;             /* Remove desktop right */
         transform: translateX(-50%);
         border-radius: 12px;
     }
