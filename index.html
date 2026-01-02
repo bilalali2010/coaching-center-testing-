@@ -118,7 +118,7 @@ footer {
 #chatbot-container {
     position: fixed;
     bottom: 20px;
-    right: 16px;
+    right: 20px;
     z-index: 9999;
 }
 
@@ -134,6 +134,7 @@ footer {
     align-items: center;
     cursor: pointer;
     box-shadow: 0 8px 25px rgba(0,191,255,0.5);
+    transition: all 0.3s ease;
 }
 
 /* ================= CHAT POPUP ================= */
@@ -141,20 +142,19 @@ footer {
     display: none;
     position: fixed;
     bottom: 90px;
-
-    left: 50%;                    /* Center horizontally */
-    transform: translateX(-50%);  /* Adjust exact center */
-
-    width: 380px;
-    max-width: calc(100% - 32px);
-    height: 72vh;
-
-    background: rgba(255,255,255,0.9);
+    right: 20px;
+    width: 400px;          /* default desktop width */
+    max-width: 35vw;        /* scale for large screens */
+    min-width: 300px;       /* minimum size */
+    height: 600px;
+    max-height: 80vh;
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(14px);
     border-radius: 18px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     overflow: hidden;
     z-index: 9998;
+    transition: all 0.3s ease;
 }
 
 /* ================= CHAT HEADER ================= */
@@ -203,22 +203,22 @@ footer {
 }
 
 /* ================= MOBILE FIX ================= */
-@media (max-width: 500px) {
+@media (max-width: 768px) {
+    #chat-overlay {
+        width: 90vw;
+        height: 70vh;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
+        border-radius: 16px;
+    }
+
     .hero h1 {
         font-size: 28px;
     }
 
     .hero p {
         font-size: 15px;
-    }
-
-    #chat-overlay {
-        width: calc(100% - 16px);
-        height: 80vh;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 80px;
-        border-radius: 16px;
     }
 }
 </style>
