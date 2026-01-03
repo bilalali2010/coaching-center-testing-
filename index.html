@@ -17,20 +17,19 @@ html,body{
     color:#333;
 }
 
-/* ====== LAYOUT ====== */
+/* ===== LAYOUT ===== */
 section{
     max-width:1100px;
     margin:auto;
     padding:70px 16px;
 }
-
 h2{
     text-align:center;
     color:#00bfff;
     margin-bottom:30px;
 }
 
-/* ====== HERO ====== */
+/* ===== HERO ===== */
 .hero{
     background:linear-gradient(rgba(0,191,255,.85),rgba(0,191,255,.85)),
     url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
@@ -41,7 +40,7 @@ h2{
 .hero h1{font-size:42px}
 .hero p{max-width:800px;margin:auto}
 
-/* ====== GRIDS ====== */
+/* ===== GRIDS ===== */
 .grid{
     display:flex;
     flex-wrap:wrap;
@@ -63,14 +62,14 @@ h2{
     margin-bottom:14px;
 }
 
-/* ====== STATS ====== */
+/* ===== STATS ===== */
 .stats{
     background:linear-gradient(135deg,#00bfff,#009acd);
     color:#fff;
     border-radius:30px;
 }
 
-/* ====== FOOTER ====== */
+/* ===== FOOTER ===== */
 footer{
     background:#00bfff;
     text-align:center;
@@ -79,58 +78,59 @@ footer{
 }
 
 /* =================================================
-   FLOATING CHATBOT (PC SIZE FIXED)
+   FLOATING CHATBOT (PC BIGGER)
 ================================================= */
 #chat-btn{
     position:fixed;
     bottom:22px;
     right:22px;
-    width:60px;
-    height:60px;
+    width:64px;
+    height:64px;
     border-radius:50%;
     background:linear-gradient(135deg,#00bfff,#00ffd5);
     border:none;
-    font-size:26px;
+    font-size:28px;
     cursor:pointer;
     box-shadow:0 10px 25px rgba(0,191,255,.5);
     z-index:9998;
 }
 
+/* 🔥 PC SIZE INCREASED HERE */
 #chat-box{
     display:none;
     position:fixed;
-    bottom:90px;
+    bottom:96px;
     right:22px;
-    width:380px;
-    height:72vh;
-    max-height:720px;
+    width:440px;        /* was 380px */
+    height:78vh;        /* was 72vh */
+    max-height:820px;   /* more room on large screens */
     background:#fff;
-    border-radius:18px;
+    border-radius:20px;
     box-shadow:0 20px 60px rgba(0,0,0,.3);
     overflow:hidden;
     z-index:9999;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .chat-header{
-    height:56px;
+    height:58px;
     background:#0f172a;
     color:#fff;
-    padding:0 14px;
+    padding:0 16px;
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 .chat-header i{cursor:pointer}
 
-/* ===== IFRAME ===== */
+/* IFRAME */
 #chat-frame{
     width:100%;
-    height:calc(100% - 56px);
+    height:calc(100% - 58px);
     border:none;
 }
 
-/* ===== MOBILE ===== */
+/* ===== MOBILE: FULLSCREEN ===== */
 @media(max-width:768px){
     #chat-box{
         inset:0;
@@ -155,9 +155,8 @@ footer{
 <section>
 <h2>Who We Are</h2>
 <p style="text-align:center;max-width:900px;margin:auto">
-NextGen Coaching Institute is dedicated to preparing students for school,
-college, competitive exams, and IT careers through expert faculty,
-structured learning, and modern AI assistance.
+NextGen Coaching Institute provides high-quality education for school,
+college, competitive exams, and IT skills with expert teachers and modern AI guidance.
 </p>
 </section>
 
@@ -168,12 +167,12 @@ structured learning, and modern AI assistance.
     <div class="card">
         <i class="fa-solid fa-book"></i>
         <h3>School & College</h3>
-        <p>Concept-based teaching for strong academic foundations.</p>
+        <p>Strong conceptual learning with exam-oriented preparation.</p>
     </div>
     <div class="card">
         <i class="fa-solid fa-bullseye"></i>
         <h3>Competitive Exams</h3>
-        <p>Focused preparation with test series & mentorship.</p>
+        <p>Focused mentoring, tests, and performance tracking.</p>
     </div>
     <div class="card">
         <i class="fa-solid fa-laptop-code"></i>
