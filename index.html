@@ -1,153 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextGen Coaching Institute</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NextGen Coaching Institute – AI Support</title>
 
 <style>
-/* ================= GLOBAL ================= */
-* { box-sizing: border-box; }
-
-html, body {
-    margin: 0;
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-    background: #f4f7fb;
-}
-
-/* ================= HERO ================= */
-.hero {
-    background: linear-gradient(rgba(0,191,255,0.85), rgba(0,191,255,0.85)),
-    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
-    padding: 90px 16px;
-    text-align: center;
-    color: #fff;
-}
-
-.hero h1 { font-size: 40px; }
-.hero p { max-width: 800px; margin: auto; }
-
-/* ================= FLOATING CHAT BUTTON ================= */
-#chatbot-container {
+/* ================= CHAT BUTTON ================= */
+#chat-toggle {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-}
-
-#chatbot-bubble {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #00bfff, #00ffd5);
-    color: #002b36;
-    font-size: 28px;
+    bottom: 24px;
+    right: 24px;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(135deg, #00bfff, #009acd);
+    color: #fff;
+    border: none;
+    font-size: 26px;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(0,191,255,0.5);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    z-index: 9998;
 }
 
-/* ================= FULLSCREEN CHAT OVERLAY ================= */
+/* ================= CHAT CONTAINER ================= */
 #chat-overlay {
     display: none;
     position: fixed;
-    inset: 0;                 /* ⬅️ FULL SCREEN (PC + MOBILE) */
-    width: 100%;
-    height: 100%;
+    bottom: 24px;
+    right: 24px;
+
+    width: 380px;
+    height: 72vh;
+    max-height: 720px;
+
     background: #ffffff;
-    z-index: 10000;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
 }
 
-/* ================= CHAT HEADER ================= */
+/* ================= HEADER ================= */
 .chat-header {
-    height: 56px;
-    background: linear-gradient(135deg, #00bfff, #009acd);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
+    height: 72px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ffffff;
+    padding: 10px 16px;
+    position: relative;
 }
 
-.chat-header-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.chat-header strong {
+    font-size: 15px;
+    display: block;
 }
 
-.status-dot {
-    width: 8px;
-    height: 8px;
-    background: #00ff6a;
-    border-radius: 50%;
+.chat-header span {
+    font-size: 11px;
+    opacity: 0.85;
 }
 
-.chat-header-right i {
-    font-size: 18px;
+/* Close */
+.chat-close {
+    position: absolute;
+    right: 14px;
+    top: 18px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
     cursor: pointer;
+}
+
+/* ================= INFO PANEL ================= */
+.coaching-info {
+    padding: 12px 16px;
+    background: #f8fafc;
+    font-size: 12px;
+    line-height: 1.5;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.coaching-info strong {
+    color: #0f172a;
+}
+
+.coaching-tags {
+    margin-top: 6px;
+}
+
+.coaching-tags span {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    margin: 2px 4px 0 0;
 }
 
 /* ================= IFRAME ================= */
 #chat-frame {
     width: 100%;
-    height: calc(100% - 56px);
+    height: calc(100% - 72px - 92px);
     border: none;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    #chat-overlay {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        max-height: none;
+    }
+
+    #chat-toggle {
+        bottom: 16px;
+        right: 16px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-    <h1>NextGen Coaching Institute</h1>
-    <p>Academic excellence, competitive success, and AI-powered student support.</p>
-</div>
-
 <!-- CHAT BUTTON -->
-<div id="chatbot-container">
-    <div id="chatbot-bubble">💬</div>
-</div>
+<button id="chat-toggle">💬</button>
 
-<!-- FULLSCREEN CHAT -->
+<!-- CHAT BOX -->
 <div id="chat-overlay">
+
+    <!-- HEADER -->
     <div class="chat-header">
-        <div class="chat-header-left">
-            <strong>NextGen AI</strong>
-            <span class="status-dot"></span>
+        <strong>NextGen Coaching Institute</strong>
+        <span>Academic • Competitive • AI-Powered Support</span>
+        <button class="chat-close" onclick="toggleChat()">✕</button>
+    </div>
+
+    <!-- COACHING INFO -->
+    <div class="coaching-info">
+        <strong>📚 About Us</strong><br>
+        NextGen Coaching Institute provides result-oriented coaching for
+        school, college, competitive exams, and IT skills with expert mentors
+        and 24/7 AI student assistance.
+
+        <div class="coaching-tags">
+            <span>📖 School & College</span>
+            <span>🎯 Competitive Exams</span>
+            <span>💻 IT & AI Courses</span>
+            <span>🕒 24/7 Support</span>
         </div>
-        <div class="chat-header-right">
-            <i class="fa-solid fa-xmark" id="close-btn"></i>
+
+        <div style="margin-top:6px;">
+            <strong>⏰ Timings:</strong> 9 AM – 9 PM<br>
+            <strong>📍 Mode:</strong> Online & Offline
         </div>
     </div>
 
+    <!-- CHATBOT -->
     <iframe
         id="chat-frame"
-        src="https://chat-with-nextgen-coaching.streamlit.app/?embed=true">
+        src="https://chat-with-nextgen-coaching.streamlit.app/?embed=true"
+        allow="clipboard-read; clipboard-write">
     </iframe>
+
 </div>
 
 <script>
-const bubble = document.getElementById("chatbot-bubble");
-const overlay = document.getElementById("chat-overlay");
-const closeBtn = document.getElementById("close-btn");
+function toggleChat() {
+    const chat = document.getElementById("chat-overlay");
+    chat.style.display = chat.style.display === "block" ? "none" : "block";
+}
 
-bubble.onclick = () => {
-    overlay.style.display = "block";
-    document.body.style.overflow = "hidden"; // lock background
-};
-
-closeBtn.onclick = () => {
-    overlay.style.display = "none";
-    document.body.style.overflow = "auto";
-};
+document.getElementById("chat-toggle").addEventListener("click", toggleChat);
 </script>
 
 </body>
 </html>
-v
