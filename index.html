@@ -1560,28 +1560,116 @@
 
 
 
-<!-- CHATBOT -->
-<button id="chat-btn">💬</button>
 
-<div id="chat-box">
-    <div class="chat-header">
-        <strong>NextGen AI Assistant</strong>
-        <i class="fa-solid fa-xmark" onclick="toggleChat()"></i>
+<!-- ===============================
+     HOSPITAL CHATBOT ASSISTANT EMBED
+     Paste before </body>
+================================ -->
+
+<style>
+/* Floating Button */
+#hospital-chat-btn{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#00bfff,#00ffd5);
+    border:none;
+    font-size:28px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,191,255,.5);
+    z-index:9998;
+}
+
+/* Chat Window (PC) */
+#hospital-chat-box{
+    display:none;
+    position:fixed;
+    bottom:96px;
+    right:22px;
+    width:440px;
+    height:78vh;
+    max-height:820px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    overflow:hidden;
+    z-index:9999;
+}
+
+/* Header */
+.hospital-chat-header{
+    height:58px;
+    background:#0f172a;
+    color:#fff;
+    padding:0 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-family:Arial, sans-serif;
+}
+
+.hospital-chat-header span{
+    font-weight:600;
+}
+
+.hospital-chat-header button{
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* Iframe */
+#hospital-chat-frame{
+    width:100%;
+    height:calc(100% - 58px);
+    border:none;
+}
+
+/* Mobile Fullscreen */
+@media(max-width:768px){
+    #hospital-chat-box{
+        inset:0;
+        width:100%;
+        height:100%;
+        border-radius:0;
+        max-height:none;
+    }
+}
+</style>
+
+<!-- Chat Button -->
+<button id="hospital-chat-btn">💬</button>
+
+<!-- Chat Box -->
+<div id="hospital-chat-box">
+    <div class="hospital-chat-header">
+        <span>Hospital Chatbot Assistant</span>
+        <button onclick="hospitalToggleChat()">✖</button>
     </div>
-    <iframe id="chat-frame"
-        src=https://chatwith-nextgen.vercel.app/?embed=true">
+
+    <iframe
+        id="hospital-chat-frame"
+        src="https://chatwith-nextgen.vercel.app/?embed=true">
     </iframe>
 </div>
 
 <script>
-function toggleChat(){
-    const box=document.getElementById("chat-box");
-    box.style.display = box.style.display==="block" ? "none" : "block";
+function hospitalToggleChat(){
+    const box = document.getElementById("hospital-chat-box");
+    box.style.display = box.style.display === "block" ? "none" : "block";
 }
-document.getElementById("chat-btn").onclick=toggleChat;
+
+document.getElementById("hospital-chat-btn").onclick = hospitalToggleChat;
 </script>
 
-
+<!-- ===============================
+     END HOSPITAL CHATBOT ASSISTANT EMBED
+================================ -->
 
 
 
