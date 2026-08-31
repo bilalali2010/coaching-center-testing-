@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGen Coaching Institute | Premium Education for Academic Excellence</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,560;9..144,650&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & TOKENS
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root{
+  /* color */
+  --ink: #12203D;
+  --ink-soft: #4A5875;
+  --ink-faint: #8792A8;
+  --paper: #FAF8F3;
+  --surface: #FFFFFF;
+  --surface-alt: #F1EDE3;
+  --navy-deep: #0B1526;
+  --navy-mid: #16233F;
+  --navy-line: rgba(255,255,255,0.12);
+  --brass: #B6873F;
+  --brass-dark: #8F6A2E;
+  --brass-tint: #F4E9D6;
+  --line: #E5DFD0;
+  --line-soft: #EFEAE0;
+  --success: #2F7D5A;
+  --success-tint: #E4F1EA;
+
+  /* type */
+  --display: 'Fraunces', serif;
+  --body: 'Inter', sans-serif;
+
+  /* shape */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 26px;
+
+  /* shadow */
+  --shadow-card: 0 1px 2px rgba(18,32,61,0.05), 0 18px 40px -26px rgba(18,32,61,0.35);
+  --shadow-hover: 0 24px 50px -22px rgba(18,32,61,0.38);
+
+  --ease: cubic-bezier(.16,.84,.44,1);
+}
+
+body{
+  font-family: var(--body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4{
+  font-family: var(--display);
+  font-weight: 560;
+  line-height: 1.12;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+p { color: var(--ink-soft); }
+
+a { color: inherit; }
+
+img { max-width: 100%; display: block; }
+
+::selection{ background: var(--brass-tint); color: var(--ink); }
+
+:focus-visible{
+  outline: 2px solid var(--brass-dark);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+.container{
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.section-padding{ padding: 112px 0; }
+
+@media (max-width: 900px){ .section-padding{ padding: 76px 0; } }
+@media (max-width: 560px){ .section-padding{ padding: 60px 0; } }
+
+/* section header — editorial split layout, not centered default */
+.section-head{
+  display: grid;
+  grid-template-columns: minmax(0,0.9fr) minmax(0,1.1fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.section-head .kicker-rule{
+  width: 42px;
+  height: 3px;
+  background: var(--brass);
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+.section-head h2{
+  font-size: clamp(1.9rem, 2.4vw + 1rem, 2.7rem);
+}
+.section-head p{
+  font-size: 1.05rem;
+  max-width: 46ch;
+}
+.section-head.on-dark h2, .section-head.on-dark p{ color: #fff; }
+.section-head.on-dark p{ color: #C7CEE0; }
+.section-head.on-dark .kicker-rule{ background: var(--brass); }
+
+.section-head--center{
+  grid-template-columns: 1fr;
+  text-align: center;
+  justify-items: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 800px){
+  .section-head{ grid-template-columns: 1fr; gap: 16px; }
+  .section-head p{ max-width: none; }
+}
+
+/* buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn i{ font-size: 0.85em; }
+.btn-primary{
+  background: var(--brass);
+  color: var(--navy-deep);
+  box-shadow: 0 10px 24px -10px rgba(182,135,63,0.55);
+}
+.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 16px 32px -12px rgba(182,135,63,0.65); background: #C6974B; }
+
+.btn-outline{
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn-outline:hover{ border-color: var(--ink); transform: translateY(-2px); }
+
+.btn-ghost-light{
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.35);
+}
+.btn-ghost-light:hover{ background: rgba(255,255,255,0.08); border-color: #fff; transform: translateY(-2px); }
+
+.btn-block{ width: 100%; }
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+header{
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  background: rgba(250,248,243,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+header.is-scrolled{
+  border-bottom-color: var(--line);
+  box-shadow: 0 8px 30px -20px rgba(18,32,61,0.35);
+}
+
+.header-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo-icon{
+  width: 46px; height: 46px;
+  border-radius: 11px;
+  background: var(--navy-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--brass);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.logo-text h1{
+  font-size: 1.28rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.logo-text p{
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+
+nav.main-nav ul{
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+nav.main-nav a{
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.2s var(--ease);
+}
+nav.main-nav a::after{
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 2px;
+  background: var(--brass);
+  border-radius: 2px;
+  transition: width 0.25s var(--ease);
+}
+nav.main-nav a:hover{ color: var(--ink); }
+nav.main-nav a:hover::after{ width: 100%; }
+
+.header-actions{ display: flex; align-items: center; gap: 14px; }
+.header-actions .btn-outline{ padding: 12px 22px; font-size: 0.92rem; }
+.header-actions .btn-primary{ padding: 12px 24px; font-size: 0.92rem; }
+
+.mobile-menu-btn{
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--ink);
+  cursor: pointer;
+  width: 44px; height: 44px;
+  align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+}
+.mobile-menu-btn:hover{ background: var(--surface-alt); }
+
+@media (max-width: 980px){
+  nav.main-nav{
+    position: fixed;
+    top: 0; right: 0;
+    height: 100vh;
+    width: min(320px, 84vw);
+    background: var(--surface);
+    box-shadow: -20px 0 60px -20px rgba(18,32,61,0.3);
+    padding: 96px 32px 32px;
+    transform: translateX(100%);
+    transition: transform 0.35s var(--ease);
+    z-index: 999;
+  }
+  nav.main-nav.is-open{ transform: translateX(0); }
+  nav.main-nav ul{
+    flex-direction: column;
+    gap: 6px;
+  }
+  nav.main-nav a{
+    display: block;
+    padding: 12px 4px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.main-nav a::after{ display: none; }
+  .nav-scrim{
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(11,21,38,0.45);
+    z-index: 998;
+  }
+  .nav-scrim.is-visible{ display: block; }
+  .header-actions .btn-outline{ display: none; }
+  .mobile-menu-btn{ display: flex; }
+  .nav-mobile-cta{
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+@media (min-width: 981px){ .nav-mobile-cta{ display: none; } }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position: relative;
+  padding: 168px 0 96px;
+  background: var(--navy-deep);
+  color: #fff;
+  overflow: hidden;
+}
+.hero::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(760px 420px at 82% -8%, rgba(182,135,63,0.28), transparent 60%),
+    radial-gradient(600px 500px at 100% 60%, rgba(182,135,63,0.10), transparent 65%);
+  pointer-events: none;
+}
+.hero-grid{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brass);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 22px;
+}
+.hero-eyebrow .rule{ width: 28px; height: 2px; background: var(--brass); border-radius: 2px; }
+
+.hero h1{
+  color: #fff;
+  font-size: clamp(2.3rem, 3.4vw + 1.1rem, 3.6rem);
+  max-width: 15ch;
+  margin-bottom: 22px;
+}
+.hero p.lede{
+  font-size: 1.13rem;
+  color: #C7CEE0;
+  max-width: 46ch;
+  margin-bottom: 36px;
+}
+.hero-buttons{ display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 56px; }
+
+.hero-stats{
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 32px 40px;
+  border-top: 1px solid var(--navy-line);
+  padding-top: 32px;
+}
+.stat-item{ display: flex; flex-direction: column; }
+.stat-number{
+  font-family: var(--display);
+  font-size: 2.1rem;
+  font-weight: 560;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.stat-number .accent{ color: var(--brass); }
+.stat-label{
+  font-size: 0.78rem;
+  color: #97A2BE;
+  font-weight: 500;
+}
+
+/* hero credential panel — replaces stock photography */
+.credential-panel{
+  position: relative;
+  background: linear-gradient(165deg, #16233F 0%, #101C34 100%);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,0.55);
+}
+.credential-panel::before{
+  content: '';
+  position: absolute;
+  top: 18px; right: 18px; bottom: 18px; left: 18px;
+  border: 1px solid rgba(182,135,63,0.35);
+  border-radius: 18px;
+  pointer-events: none;
+}
+.credential-top{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--navy-line);
+}
+.credential-badge{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--brass);
+  color: var(--navy-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+.credential-top h4{ color: #fff; font-size: 1rem; font-family: var(--body); font-weight: 700; }
+.credential-top p{ color: #97A2BE; font-size: 0.8rem; }
+
+.credential-list{ list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+.credential-list li{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #DCE1EF;
+  font-size: 0.92rem;
+}
+.credential-list i{ color: var(--brass); margin-top: 3px; }
+
+.credential-quote{
+  background: rgba(182,135,63,0.1);
+  border-left: 2px solid var(--brass);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 18px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.98rem;
+  color: #F1E7D3;
+  line-height: 1.5;
+}
+
+@media (max-width: 980px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .hero h1{ max-width: none; }
+  .hero p.lede{ max-width: none; }
+  .credential-panel{ max-width: 460px; }
+}
+@media (max-width: 620px){
+  .hero{ padding: 140px 0 72px; }
+  .hero-stats{ grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .hero-buttons .btn{ width: 100%; }
+}
+
+/* ============================================================
+   ABOUT / CAMPUSES
+   ============================================================ */
+.about-intro{
+  font-size: 1.05rem;
+  max-width: 70ch;
+  margin-bottom: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.campuses-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.campus-card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 34px 30px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.campus-card:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: transparent;
+}
+.campus-icon{
+  width: 54px; height: 54px;
+  border-radius: 13px;
+  background: var(--navy-deep);
+  color: var(--brass);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+}
+.campus-card h3{ font-size: 1.32rem; margin-bottom: 6px; }
+.campus-location{ color: var(--brass-dark); font-weight: 700; font-size: 0.88rem; margin-bottom: 12px; }
+.campus-card > p{ font-size: 0.95rem; margin-bottom: 20px; }
+
+.campus-features{ list-style: none; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line-soft); display: flex; flex-direction: column; gap: 10px; }
+.campus-features li{ display: flex; align-items: center; gap: 10px; color: var(--ink-soft); font-size: 0.9rem; }
+.campus-features i{ color: var(--success); font-size: 0.85rem; }
+
+@media (max-width: 980px){ .campuses-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px){ .campuses-grid{ grid-template-columns: 1fr; } }
+
+/* ============================================================
+   PROGRAMS
+   ============================================================ */
+.programs-section{ background: var(--surface-alt); }
+
+.programs-tabs{
+  display: flex;
+  gap: 8px;
+  margin-bottom: 44px;
+  padding-bottom: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.programs-tabs::-webkit-scrollbar{ display: none; }
+.tab-btn{
+  flex-shrink: 0;
+  padding: 12px 22px;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+.tab-btn.active, .tab-btn:hover{
+  background: var(--navy-deep);
+  color: #fff;
+  border-color: var(--navy-deep);
+}
+
+.tab-content{ display: none; }
+.tab-content.active{ display: block; animation: fadeIn 0.45s var(--ease); }
+
+.programs-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.program-card{
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brass);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.program-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-card); }
+.program-header{ display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.program-icon{
+  width: 48px; height: 48px;
+  background: var(--brass-tint);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--brass-dark);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.program-card h3{ font-size: 1.16rem; }
+.program-card > p{ font-size: 0.92rem; margin-bottom: 16px; }
+.program-card ul{ list-style: none; margin-bottom: 20px; display: flex; flex-direction: column; gap: 9px; }
+.program-card li{ padding-left: 22px; position: relative; color: var(--ink-soft); font-size: 0.9rem; }
+.program-card li::before{ content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 700; }
+.program-duration{
+  margin-top: auto;
+  display: inline-flex;
+  align-self: flex-start;
+  background: var(--brass-tint);
+  color: var(--brass-dark);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.program-fee-note{ margin-top: 10px; font-size: 0.82rem; color: var(--ink-faint); }
+
+.programs-cta{ text-align: center; margin-top: 48px; }
+
+@media (max-width: 980px){ .programs-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px){ .programs-grid{ grid-template-columns: 1fr; } }
+
+/* ============================================================
+   FACULTY — list layout, distinct from card grid pattern
+   ============================================================ */
+.faculty-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.faculty-card{
+  background: var(--surface);
+  padding: 32px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: background-color 0.25s var(--ease);
+}
+.faculty-card:hover{ background: var(--surface-alt); }
+.faculty-img{
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  color: var(--brass);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}
+.faculty-body h3{ font-size: 1.12rem; margin-bottom: 2px; }
+.faculty-role{ color: var(--brass-dark); font-weight: 700; font-size: 0.85rem; margin-bottom: 10px; }
+.faculty-body > p{ font-size: 0.9rem; margin-bottom: 14px; }
+.faculty-exp{
+  display: inline-flex;
+  background: var(--surface-alt);
+  color: var(--ink);
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 760px){
+  .faculty-list{ grid-template-columns: 1fr; }
+}
+@media (max-width: 480px){
+  .faculty-card{ flex-direction: column; align-items: flex-start; padding: 26px; }
+}
+
+/* ============================================================
+   RESULTS — achievement strip + testimonials
+   ============================================================ */
+.results-section{ background: var(--navy-deep); color: #fff; }
+
+.achievement-strip{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--navy-line);
+  border-bottom: 1px solid var(--navy-line);
+  margin-bottom: 72px;
+}
+.achievement-item{
+  padding: 30px 24px;
+  text-align: center;
+  border-left: 1px solid var(--navy-line);
+}
+.achievement-item:first-child{ border-left: none; }
+.achievement-number{
+  font-family: var(--display);
+  font-size: 2.4rem;
+  color: var(--brass);
+  margin-bottom: 6px;
+}
+.achievement-label{ font-size: 0.82rem; color: #97A2BE; font-weight: 500; }
+
+.testimonials-subhead{ margin-bottom: 36px; }
+.testimonials-subhead h3{ color: #fff; font-size: 1.5rem; margin-bottom: 8px; }
+.testimonials-subhead p{ color: #97A2BE; }
+
+.testimonials-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.testimonial-card{
+  background: var(--navy-mid);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-mark{ color: var(--brass); font-family: var(--display); font-size: 2.6rem; line-height: 1; margin-bottom: 8px; }
+.testimonial-text{
+  font-family: var(--display);
+  font-size: 1.02rem;
+  color: #E4E8F2;
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+.testimonial-author{ display: flex; align-items: center; gap: 14px; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--navy-line); }
+.author-avatar{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--brass-tint);
+  color: var(--brass-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.testimonial-author h4{ color: #fff; font-size: 0.96rem; font-family: var(--body); font-weight: 700; }
+.testimonial-author p{ color: #97A2BE; font-size: 0.82rem; }
+
+@media (max-width: 980px){
+  .achievement-strip{ grid-template-columns: repeat(2, 1fr); }
+  .achievement-item:nth-child(3){ border-left: none; }
+  .achievement-item:nth-child(1), .achievement-item:nth-child(2){ border-bottom: 1px solid var(--navy-line); padding-bottom: 26px; }
+  .achievement-item:nth-child(3), .achievement-item:nth-child(4){ padding-top: 26px; }
+  .testimonials-container{ grid-template-columns: 1fr; }
+}
+@media (max-width: 480px){
+  .achievement-strip{ grid-template-columns: 1fr; }
+  .achievement-item{ border-left: none !important; border-bottom: 1px solid var(--navy-line); padding: 22px 4px; }
+  .achievement-item:last-child{ border-bottom: none; }
+}
+
+/* ============================================================
+   TRUST SECTION
+   ============================================================ */
+.trust-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.trust-item{
+  background: var(--surface);
+  padding: 32px 28px;
+}
+.trust-item i{ color: var(--brass-dark); font-size: 1.3rem; margin-bottom: 16px; }
+.trust-item h4{ font-size: 1.02rem; margin-bottom: 8px; font-family: var(--body); font-weight: 700; }
+.trust-item p{ font-size: 0.9rem; }
+
+@media (max-width: 760px){ .trust-grid{ grid-template-columns: 1fr; } }
+
+/* ============================================================
+   FEE SECTION
+   ============================================================ */
+.fee-panel{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  overflow: hidden;
+}
+.fee-table-wrap{ overflow-x: auto; }
+.fee-table{
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+.fee-table th{
+  background: var(--navy-deep);
+  color: #fff;
+  padding: 18px 22px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+.fee-table th:first-child{ border-radius: 18px 0 0 0; }
+.fee-table th:last-child{ border-radius: 0 18px 0 0; }
+.fee-table td{
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.fee-table tr:last-child td{ border-bottom: none; }
+.fee-table tr:hover td{ background: var(--surface-alt); }
+.fee-table td:first-child{ color: var(--ink); font-weight: 600; }
+.fee-highlight td{ background: var(--brass-tint) !important; color: var(--ink) !important; font-weight: 600; }
+
+.fee-perks{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.fee-perk{
+  padding: 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}
+.fee-perk h4{ font-family: var(--body); font-size: 0.98rem; margin-bottom: 8px; display: flex; align-items: center; gap: 9px; }
+.fee-perk p{ font-size: 0.88rem; }
+.fee-perk.success{ background: var(--success-tint); border-color: transparent; }
+.fee-perk.success h4{ color: var(--success); }
+.fee-perk.brass{ background: var(--brass-tint); border-color: transparent; }
+.fee-perk.brass h4{ color: var(--brass-dark); }
+.fee-perk.navy{ background: rgba(11,21,38,0.05); }
+.fee-perk.navy h4{ color: var(--ink); }
+
+@media (max-width: 760px){ .fee-perks{ grid-template-columns: 1fr; } }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-section{ background: var(--navy-deep); color: #fff; }
+.contact-grid{
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+}
+.contact-info-list{ display: flex; flex-direction: column; gap: 28px; margin-top: 8px; }
+.contact-item{ display: flex; align-items: flex-start; gap: 18px; }
+.contact-icon{
+  width: 52px; height: 52px;
+  background: rgba(182,135,63,0.14);
+  border: 1px solid rgba(182,135,63,0.3);
+  border-radius: 13px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--brass);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.contact-details h4{ color: #fff; font-family: var(--body); font-size: 1rem; margin-bottom: 5px; }
+.contact-details p{ color: #B7C0D8; font-size: 0.92rem; }
+.contact-details p.dim{ color: #7C87A3; font-size: 0.82rem; margin-top: 3px; }
+
+.contact-form-panel{
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+.contact-form-panel h3{ color: var(--ink); margin-bottom: 6px; }
+.contact-form-panel > p{ margin-bottom: 26px; font-size: 0.92rem; }
+.form-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-group{ margin-bottom: 20px; }
+.form-group label{
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.form-control{
+  width: 100%;
+  padding: 13px 15px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: var(--body);
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.form-control:focus{
+  outline: none;
+  border-color: var(--brass);
+  box-shadow: 0 0 0 4px var(--brass-tint);
+  background: #fff;
+}
+
+@media (max-width: 980px){
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 560px){
+  .form-row{ grid-template-columns: 1fr; }
+  .contact-form-panel{ padding: 26px; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{ background: #0B1526; color: #fff; padding: 76px 0 28px; }
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 44px;
+  margin-bottom: 56px;
+}
+.footer-col h3{
+  font-family: var(--body);
+  font-size: 1rem;
+  margin-bottom: 22px;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+.footer-col h3::after{
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 34px; height: 2px;
+  background: var(--brass);
+  border-radius: 2px;
+}
+.footer-brand-row{ display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.footer-brand-row .logo-icon{ width: 40px; height: 40px; font-size: 1.1rem; }
+.footer-brand-row span{ font-family: var(--display); font-size: 1.15rem; color: #fff; }
+.footer-col > p{ color: #97A2BE; font-size: 0.9rem; margin-bottom: 22px; }
+.footer-col ul{ list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col ul li a{
+  color: #97A2BE;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s var(--ease), padding-left 0.2s var(--ease);
+}
+.footer-col ul li a:hover{ color: #fff; padding-left: 4px; }
+.footer-col ul li{ display: flex; align-items: flex-start; gap: 10px; color: #97A2BE; font-size: 0.9rem; }
+.footer-col ul li i{ color: var(--brass); margin-top: 4px; flex-shrink: 0; width: 14px; }
+
+.social-links{ display: flex; gap: 12px; margin-top: 4px; }
+.social-link{
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--navy-line);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.25s var(--ease);
+}
+.social-link:hover{ background: var(--brass); border-color: var(--brass); color: var(--navy-deep); transform: translateY(-3px); }
+
+.copyright{
+  text-align: center;
+  padding-top: 28px;
+  border-top: 1px solid var(--navy-line);
+  color: #7C87A3;
+  font-size: 0.85rem;
+}
+.copyright p + p{ margin-top: 8px; }
+
+@media (max-width: 980px){
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px){
+  .footer-grid{ grid-template-columns: 1fr; gap: 36px; }
+}
+
+/* ============================================================
+   REVEAL ANIMATION (single, tasteful pattern)
+   ============================================================ */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+[data-reveal].in-view{ opacity: 1; transform: translateY(0); }
+
+@keyframes fadeIn{ from{ opacity: 0; transform: translateY(12px); } to{ opacity: 1; transform: translateY(0); } }
+
+/* ============================================================
+   CHATBOT — restyled to match palette, same functionality
+   ============================================================ */
+#nextgen-chat-btn{
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  border: 1px solid rgba(182,135,63,0.4);
+  cursor: pointer;
+  box-shadow: 0 14px 32px -10px rgba(11,21,38,0.55);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9998;
+  transition: transform 0.25s var(--ease);
+}
+#nextgen-chat-btn:hover{ transform: translateY(-3px) scale(1.03); }
+#nextgen-chat-btn svg{ width: 28px; height: 28px; fill: var(--brass); }
+
+#nextgen-chat-box{
+  display: none;
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  width: 400px;
+  height: 74vh;
+  max-height: 780px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 30px 70px -20px rgba(11,21,38,0.45);
+  overflow: hidden;
+  z-index: 9999;
+  border: 1px solid var(--line);
+}
+@media (min-width: 1200px){
+  #nextgen-chat-box{ width: 440px; height: 80vh; max-height: 860px; }
+}
+.nextgen-chat-header{
+  height: 56px;
+  background: var(--navy-deep);
+  color: #fff;
+  padding: 0 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--body);
+}
+.nextgen-chat-header span{ font-weight: 700; font-size: 0.95rem; }
+.nextgen-chat-header button{ background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; opacity: 0.8; }
+.nextgen-chat-header button:hover{ opacity: 1; }
+#nextgen-chat-frame{ width: 100%; height: calc(100% - 56px); border: none; }
+
+@media (max-width: 768px){
+  #nextgen-chat-box{ inset: 0; width: 100%; height: 100%; border-radius: 0; max-height: none; }
+  #nextgen-chat-btn{ bottom: 20px; right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================= HEADER ============================= -->
+<header id="siteHeader">
+  <div class="container header-row">
+    <a href="#home" class="logo">
+      <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="logo-text">
+        <h1>NextGen Coaching</h1>
+        <p>Excellence in Education Since 2010</p>
+      </div>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#faculty">Faculty</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-mobile-cta">
+        <a href="#contact" class="btn btn-outline btn-block">Inquire Now</a>
+        <a href="#contact" class="btn btn-primary btn-block">Enroll Now</a>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-outline">Inquire Now</a>
+      <a href="#contact" class="btn btn-primary">Enroll Now</a>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+
+<!-- ============================= HERO ============================= -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content" data-reveal>
+      <div class="hero-eyebrow"><span class="rule"></span> Karachi's Trusted Coaching Institute</div>
+      <h1>Empowering students for a smarter future</h1>
+      <p class="lede">NextGen Coaching Institute provides premium education with innovative teaching methodologies, experienced faculty, and state-of-the-art facilities to help students achieve academic excellence.</p>
+      <div class="hero-buttons">
+        <a href="#programs" class="btn btn-primary">Explore Programs <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-ghost-light">Book Campus Tour</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-count="13" data-suffix="+">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="2500" data-suffix="+">0</span>
+          <span class="stat-label">Students Taught</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="98" data-suffix="%">0</span>
+          <span class="stat-label">Success Rate</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="50" data-suffix="+">0</span>
+          <span class="stat-label">Expert Faculty</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="credential-panel" data-reveal>
+      <div class="credential-top">
+        <div class="credential-badge"><i class="fas fa-award"></i></div>
+        <div>
+          <h4>Board Affiliated Institute</h4>
+          <p>Registration No: EDU-789-KHI</p>
+        </div>
+      </div>
+      <ul class="credential-list">
+        <li><i class="fas fa-check-circle"></i> Two full campuses plus a nationwide online platform</li>
+        <li><i class="fas fa-check-circle"></i> PhD and M.Phil qualified subject specialists</li>
+        <li><i class="fas fa-check-circle"></i> Board-pattern mock tests and structured test series</li>
+        <li><i class="fas fa-check-circle"></i> Merit scholarships up to 50% for top performers</li>
+      </ul>
+      <div class="credential-quote">"Their mock tests were exactly like the board papers." — Ahmed Siddiqui, Matriculation A+ Grade</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ABOUT / CAMPUSES ============================= -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="kicker-rule"></div>
+        <h2>Our campuses &amp; facilities</h2>
+      </div>
+      <p>State-of-the-art learning environments designed to foster academic excellence, across two physical campuses in Karachi and a nationwide online platform.</p>
+    </div>
+
+    <p class="about-intro" data-reveal>Empowering students with quality education, modern teaching methodologies, and personalized guidance since 2010. Every campus is built around the same standard: small class sizes, structured assessments, and faculty who stay accountable for outcomes, not just attendance.</p>
+
+    <div class="campuses-grid">
+      <div class="campus-card" data-reveal>
+        <div class="campus-icon"><i class="fas fa-university"></i></div>
+        <h3>Main Campus</h3>
+        <div class="campus-location">Gulshan-e-Iqbal, Karachi</div>
+        <p>Our flagship campus features modern classrooms, digital labs, and comprehensive student support services in a prime location.</p>
+        <ul class="campus-features">
+          <li><i class="fas fa-check-circle"></i> Digital Learning Labs</li>
+          <li><i class="fas fa-check-circle"></i> Air-Conditioned Classrooms</li>
+          <li><i class="fas fa-check-circle"></i> Library &amp; Resource Center</li>
+          <li><i class="fas fa-check-circle"></i> Student Counseling Center</li>
+          <li><i class="fas fa-check-circle"></i> CCTV Surveillance</li>
+          <li><i class="fas fa-check-circle"></i> Separate Study Areas</li>
+        </ul>
+      </div>
+
+      <div class="campus-card" data-reveal>
+        <div class="campus-icon"><i class="fas fa-school"></i></div>
+        <h3>City Campus</h3>
+        <div class="campus-location">North Nazimabad, Karachi</div>
+        <p>Conveniently located in the heart of the city, offering specialized coaching for intermediate and professional courses.</p>
+        <ul class="campus-features">
+          <li><i class="fas fa-check-circle"></i> Specialized Science Labs</li>
+          <li><i class="fas fa-check-circle"></i> Computer Lab with High-Speed Internet</li>
+          <li><i class="fas fa-check-circle"></i> Conference &amp; Seminar Hall</li>
+          <li><i class="fas fa-check-circle"></i> Career Counseling Services</li>
+          <li><i class="fas fa-check-circle"></i> Parking Facility</li>
+          <li><i class="fas fa-check-circle"></i> Cafeteria</li>
+        </ul>
+      </div>
+
+      <div class="campus-card" data-reveal>
+        <div class="campus-icon"><i class="fas fa-laptop-house"></i></div>
+        <h3>Online Learning Platform</h3>
+        <div class="campus-location">Available Nationwide</div>
+        <p>Experience interactive virtual classrooms with our advanced online learning platform accessible from anywhere in Pakistan.</p>
+        <ul class="campus-features">
+          <li><i class="fas fa-check-circle"></i> Live Interactive Classes</li>
+          <li><i class="fas fa-check-circle"></i> Recorded Lecture Library</li>
+          <li><i class="fas fa-check-circle"></i> Digital Study Materials</li>
+          <li><i class="fas fa-check-circle"></i> 24/7 Assignment Support</li>
+          <li><i class="fas fa-check-circle"></i> Online Test Series</li>
+          <li><i class="fas fa-check-circle"></i> Parent-Teacher Portal</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= PROGRAMS ============================= -->
+<section id="programs" class="section-padding programs-section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="kicker-rule"></div>
+        <h2>Academic &amp; professional programs</h2>
+      </div>
+      <p>Comprehensive curriculum designed to meet diverse educational needs, from school level through entry-test and professional courses.</p>
+    </div>
+
+    <div class="programs-tabs">
+      <button class="tab-btn active" data-tab="school">School Level</button>
+      <button class="tab-btn" data-tab="matric">Matriculation</button>
+      <button class="tab-btn" data-tab="intermediate">Intermediate</button>
+      <button class="tab-btn" data-tab="entry-tests">Entry Tests</button>
+      <button class="tab-btn" data-tab="professional">Professional Courses</button>
+    </div>
+
+    <div class="tab-content active" id="school">
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-calculator"></i></div>
+            <h3>Mathematics Excellence</h3>
+          </div>
+          <p>Comprehensive coverage of mathematics curriculum for classes 6-8 with focus on problem-solving skills.</p>
+          <ul>
+            <li>Algebra &amp; Geometry Fundamentals</li>
+            <li>Problem-Solving Techniques</li>
+            <li>Mental Math Strategies</li>
+            <li>Exam Preparation Workshops</li>
+          </ul>
+          <span class="program-duration">3-6 Months Program</span>
+        </div>
+
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-flask"></i></div>
+            <h3>General Science</h3>
+          </div>
+          <p>Hands-on science education covering Physics, Chemistry, and Biology basics with practical demonstrations.</p>
+          <ul>
+            <li>Interactive Science Experiments</li>
+            <li>Environmental Science</li>
+            <li>Scientific Method Training</li>
+            <li>Science Fair Preparation</li>
+          </ul>
+          <span class="program-duration">4-8 Months Program</span>
+        </div>
+
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-language"></i></div>
+            <h3>English Mastery</h3>
+          </div>
+          <p>Develop strong English language skills with focus on grammar, vocabulary, and communication.</p>
+          <ul>
+            <li>Grammar &amp; Composition</li>
+            <li>Vocabulary Building</li>
+            <li>Reading Comprehension</li>
+            <li>Speaking &amp; Listening Skills</li>
+          </ul>
+          <span class="program-duration">3-6 Months Program</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="matric">
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-atom"></i></div>
+            <h3>Science Group</h3>
+          </div>
+          <p>Comprehensive preparation for Matric Science with focus on board exam patterns and practical knowledge.</p>
+          <ul>
+            <li>Physics, Chemistry, Biology</li>
+            <li>Mathematics (Full Course)</li>
+            <li>Computer Science</li>
+            <li>Board Pattern Tests</li>
+            <li>Practical Lab Training</li>
+          </ul>
+          <span class="program-duration">10-12 Months Program</span>
+          <div class="program-fee-note">From PKR 3,000/month · Total 30,000&ndash;36,000</div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-book"></i></div>
+            <h3>General Group</h3>
+          </div>
+          <p>Specialized coaching for General Group students with emphasis on scoring subjects.</p>
+          <ul>
+            <li>Mathematics (Basic &amp; General)</li>
+            <li>Urdu &amp; English Literature</li>
+            <li>Pakistan Studies</li>
+            <li>Islamic Studies</li>
+            <li>Elective Subjects</li>
+          </ul>
+          <span class="program-duration">10-12 Months Program</span>
+          <div class="program-fee-note">From PKR 3,000/month · Total 30,000&ndash;36,000</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="intermediate">
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-dna"></i></div>
+            <h3>Intermediate &mdash; Pre-Medical / Pre-Engineering</h3>
+          </div>
+          <p>Full-year intermediate coaching covering the core science subjects, aligned with board exam requirements.</p>
+          <ul>
+            <li>Physics &amp; Chemistry</li>
+            <li>Biology / Mathematics</li>
+            <li>Board Pattern Tests</li>
+          </ul>
+          <span class="program-duration">12 Months Program</span>
+          <div class="program-fee-note">PKR 3,500/month · Total 42,000</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="entry-tests">
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-microscope"></i></div>
+            <h3>MDCAT Preparation</h3>
+          </div>
+          <p>Structured, test-series-driven preparation for the Medical and Dental College Admission Test.</p>
+          <ul>
+            <li>Biology, Chemistry, Physics, English</li>
+            <li>Full-length Mock Test Series</li>
+            <li>Board-Pattern Practice Papers</li>
+          </ul>
+          <span class="program-duration">8 Months Program</span>
+          <div class="program-fee-note">PKR 9,000/month · Total 72,000</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="professional">
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Web Development</h3>
+          </div>
+          <p>Practical, project-based training in programming and web development fundamentals, taught by an industry practitioner.</p>
+          <ul>
+            <li>Programming Fundamentals</li>
+            <li>Web Development Projects</li>
+            <li>IT Fundamentals</li>
+          </ul>
+          <span class="program-duration">3 Months Program</span>
+          <div class="program-fee-note">PKR 8,000/month · Total 24,000</div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon"><i class="fas fa-comments"></i></div>
+            <h3>Spoken English (Advanced)</h3>
+          </div>
+          <p>Flexible weekend-friendly course focused on fluency, confidence, and workplace communication.</p>
+          <ul>
+            <li>Conversational Fluency</li>
+            <li>Grammar &amp; Vocabulary</li>
+            <li>Presentation Skills</li>
+          </ul>
+          <span class="program-duration">4 Months Program</span>
+          <div class="program-fee-note">PKR 5,000/month · Total 20,000</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="programs-cta">
+      <a href="#contact" class="btn btn-primary">View Complete Program Details <i class="fas fa-external-link-alt"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FACULTY ============================= -->
+<section id="faculty" class="section-padding">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="kicker-rule"></div>
+        <h2>Our expert faculty</h2>
+      </div>
+      <p>Learn from highly qualified educators with years of teaching experience across sciences, commerce, and technology.</p>
+    </div>
+
+    <div class="faculty-list" data-reveal>
+      <div class="faculty-card">
+        <div class="faculty-img"><i class="fas fa-user-graduate"></i></div>
+        <div class="faculty-body">
+          <h3>Dr. Ahmed Raza</h3>
+          <div class="faculty-role">PhD in Physics</div>
+          <p>15+ years experience in teaching Physics for Matric, Intermediate and entry tests. Specializes in conceptual learning.</p>
+          <span class="faculty-exp">15 Years Experience</span>
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-img"><i class="fas fa-user-md"></i></div>
+        <div class="faculty-body">
+          <h3>Ms. Sara Khan</h3>
+          <div class="faculty-role">M.Phil in Chemistry</div>
+          <p>Expert in Organic Chemistry with 12 years teaching experience. Known for making complex concepts simple.</p>
+          <span class="faculty-exp">12 Years Experience</span>
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-img"><i class="fas fa-laptop-code"></i></div>
+        <div class="faculty-body">
+          <h3>Mr. Usman Ali</h3>
+          <div class="faculty-role">MSCS, Software Engineer</div>
+          <p>Computer Science specialist with industry experience. Teaches programming, web development, and IT fundamentals.</p>
+          <span class="faculty-exp">8 Years Experience</span>
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-img"><i class="fas fa-chart-line"></i></div>
+        <div class="faculty-body">
+          <h3>Mr. Farhan Iqbal</h3>
+          <div class="faculty-role">MBA, Finance Specialist</div>
+          <p>Commerce group expert with focus on Accounting, Economics, and Business Studies. Practical industry insights.</p>
+          <span class="faculty-exp">10 Years Experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TRUST ============================= -->
+<section class="section-padding" style="background: var(--surface-alt);">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="kicker-rule"></div>
+        <h2>Why families choose NextGen</h2>
+      </div>
+      <p>Everything below reflects how the institute actually operates day to day &mdash; not marketing promises.</p>
+    </div>
+
+    <div class="trust-grid" data-reveal>
+      <div class="trust-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h4>Experienced, qualified faculty</h4>
+        <p>PhD, M.Phil, and industry-qualified instructors averaging over a decade of teaching experience.</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-chart-line"></i>
+        <h4>Proven student results</h4>
+        <p>A 98% success rate built on board-pattern mock tests and consistent, measurable outcomes.</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-user-friends"></i>
+        <h4>Personalized attention</h4>
+        <p>Small class sizes and dedicated counseling centers so no student is just a number.</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-clipboard-check"></i>
+        <h4>Regular assessments</h4>
+        <p>Structured test series and board-pattern papers that keep progress visible and on track.</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-laptop-house"></i>
+        <h4>Modern learning environment</h4>
+        <p>Digital learning labs, air-conditioned classrooms, and a nationwide online platform.</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-comments"></i>
+        <h4>Open parent communication</h4>
+        <p>A dedicated parent-teacher portal keeps families informed on progress throughout the year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= RESULTS / TESTIMONIALS ============================= -->
+<section id="results" class="section-padding results-section">
+  <div class="container">
+    <div class="section-head on-dark" data-reveal>
+      <div>
+        <div class="kicker-rule"></div>
+        <h2>Results that speak for themselves</h2>
+      </div>
+      <p>A track record built over 13 years of consistent, measurable outcomes across every program we run.</p>
+    </div>
+
+    <div class="achievement-strip" data-reveal>
+      <div class="achievement-item">
+        <div class="achievement-number" data-count="98" data-suffix="%">0</div>
+        <div class="achievement-label">Overall Success Rate</div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-number" data-count="2500" data-suffix="+">0</div>
+        <div class="achievement-label">Students Taught</div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-number" data-count="13" data-suffix="+">0</div>
+        <div class="achievement-label">Years of Experience</div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-number" data-count="50" data-suffix="+">0</div>
+        <div class="achievement-label">Expert Faculty</div>
+      </div>
+    </div>
+
+    <div class="testimonials-subhead" data-reveal>
+      <h3>Student success stories</h3>
+      <p>Hear from our students who achieved academic excellence with our guidance.</p>
+    </div>
+
+    <div class="testimonials-container" id="testimonials" data-reveal>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p class="testimonial-text">NextGen Institute transformed my approach to studies. The faculty's teaching methodology helped me score 1045/1100 in Matric. Their mock tests were exactly like the board papers!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AS</div>
+          <div>
+            <h4>Ahmed Siddiqui</h4>
+            <p>Matriculation &mdash; A+ Grade (2023)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p class="testimonial-text">The MDCAT preparation program was comprehensive and structured perfectly. With their guidance and test series, I secured 198/200 in Biology and got admission in my preferred medical college.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">FA</div>
+          <div>
+            <h4>Fatima Ahmed</h4>
+            <p>MDCAT &mdash; 92% Score (2023)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p class="testimonial-text">As a working professional, the flexible weekend batches for web development were perfect. The practical approach helped me land my first freelance project within 3 months of completion.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SK</div>
+          <div>
+            <h4>Sana Khalid</h4>
+            <p>Web Development Course (2023)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FEE STRUCTURE ============================= -->
+<section class="section-padding">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="kicker-rule"></div>
+        <h2>Transparent fee structure</h2>
+      </div>
+      <p>Quality education at affordable prices with flexible payment options and genuine scholarship opportunities.</p>
+    </div>
+
+    <div class="fee-panel" data-reveal>
+      <div class="fee-table-wrap">
+        <table class="fee-table">
+          <thead>
+            <tr>
+              <th>Program / Course</th>
+              <th>Duration</th>
+              <th>Monthly Fee (PKR)</th>
+              <th>Total Fee (PKR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>School Level (Class 6-8)</td>
+              <td>6-8 Months</td>
+              <td>2,500</td>
+              <td>15,000 - 20,000</td>
+            </tr>
+            <tr>
+              <td>Matriculation (Per Subject)</td>
+              <td>10-12 Months</td>
+              <td>3,000</td>
+              <td>30,000 - 36,000</td>
+            </tr>
+            <tr class="fee-highlight">
+              <td>Intermediate (Pre-Medical/Engineering)</td>
+              <td>12 Months</td>
+              <td>3,500</td>
+              <td>42,000</td>
+            </tr>
+            <tr>
+              <td>MDCAT Preparation</td>
+              <td>8 Months</td>
+              <td>9,000</td>
+              <td>72,000</td>
+            </tr>
+            <tr>
+              <td>Web Development (Professional)</td>
+              <td>3 Months</td>
+              <td>8,000</td>
+              <td>24,000</td>
+            </tr>
+            <tr>
+              <td>Spoken English (Advanced)</td>
+              <td>4 Months</td>
+              <td>5,000</td>
+              <td>20,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fee-perks">
+        <div class="fee-perk success">
+          <h4><i class="fas fa-percentage"></i> Multiple Subject Discount</h4>
+          <p>Get 15% discount when enrolling in 3 or more subjects.</p>
+        </div>
+        <div class="fee-perk navy">
+          <h4><i class="fas fa-user-friends"></i> Sibling Discount</h4>
+          <p>20% discount for siblings enrolled simultaneously.</p>
+        </div>
+        <div class="fee-perk brass">
+          <h4><i class="fas fa-award"></i> Merit Scholarship</h4>
+          <p>Up to 50% scholarship for top performers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CONTACT ============================= -->
+<section id="contact" class="section-padding contact-section">
+  <div class="container">
+    <div class="section-head on-dark" data-reveal>
+      <div>
+        <div class="kicker-rule"></div>
+        <h2 style="color:#fff;">Contact us</h2>
+      </div>
+      <p>Get in touch for admissions, inquiries, or campus tours.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div data-reveal>
+        <div class="contact-info-list">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="contact-details">
+              <h4>Phone &amp; WhatsApp</h4>
+              <p>+92 301 9876543</p>
+              <p class="dim">Available 9:00 AM - 8:00 PM</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-details">
+              <h4>Email Address</h4>
+              <p>support@nextgencoaching.pk</p>
+              <p>admissions@nextgencoaching.pk</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="contact-details">
+              <h4>Campuses</h4>
+              <p><strong>Main Campus:</strong> Plot 45/C, Block 7, Gulshan-e-Iqbal, Karachi</p>
+              <p><strong>City Campus:</strong> Suite 12, 2nd Floor, Commercial Area, North Nazimabad, Karachi</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+            <div class="contact-details">
+              <h4>Office Hours</h4>
+              <p><strong>Monday - Friday:</strong> 8:00 AM - 8:00 PM</p>
+              <p><strong>Saturday - Sunday:</strong> 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-panel" data-reveal>
+        <h3>Admission inquiry form</h3>
+        <p>Our admissions team responds within 24 hours.</p>
+        <form id="admissionForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email address">
+          </div>
+
+          <div class="form-group">
+            <label for="program">Program of Interest</label>
+            <select id="program" class="form-control" required>
+              <option value="">Select a program</option>
+              <option value="school">School Level (Class 6-8)</option>
+              <option value="matric">Matriculation (Class 9-10)</option>
+              <option value="intermediate">Intermediate (Class 11-12)</option>
+              <option value="mdcat">MDCAT Preparation</option>
+              <option value="skill">Skill Development Courses</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Information</label>
+            <textarea id="message" class="form-control" rows="4" placeholder="Any specific questions or requirements"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Submit Inquiry <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand-row">
+          <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+          <span>NextGen Coaching</span>
+        </div>
+        <p>Empowering students with quality education, modern teaching methodologies, and personalized guidance since 2010.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Institute</a></li>
+          <li><a href="#programs">Programs &amp; Courses</a></li>
+          <li><a href="#faculty">Our Faculty</a></li>
+          <li><a href="#testimonials">Student Results</a></li>
+          <li><a href="#contact">Admission Process</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Academic Programs</h3>
+        <ul>
+          <li><a href="#programs">School Level (6-8)</a></li>
+          <li><a href="#programs">Matriculation (9-10)</a></li>
+          <li><a href="#programs">Intermediate (11-12)</a></li>
+          <li><a href="#programs">Entry Test Preparation</a></li>
+          <li><a href="#programs">Professional Courses</a></li>
+          <li><a href="#programs">Skill Development</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-phone-alt"></i> +92 301 9876543</li>
+          <li><i class="fas fa-envelope"></i> support@nextgencoaching.pk</li>
+          <li><i class="fas fa-globe"></i> www.nextgencoaching.pk</li>
+          <li><i class="fas fa-map-marker-alt"></i> Gulshan-e-Iqbal, Karachi</li>
+          <li><i class="fas fa-map-marker-alt"></i> North Nazimabad, Karachi</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2023 NextGen Coaching Institute. All Rights Reserved. | Registration No: EDU-789-KHI | Affiliated with Board of Secondary Education Karachi</p>
+      <p>Designed with <i class="fas fa-heart" style="color:#B6873F;"></i> for educational excellence</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================= NEXTGEN CHATBOT ASSISTANT EMBED ============================= -->
+<button id="nextgen-chat-btn" aria-label="Open Chat">
+  <svg viewBox="0 0 24 24">
+    <path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm4 6c0 .6.4 1 1 1h6c.6 0 1-.4 1-1s-.4-1-1-1H9c-.6 0-1 .4-1 1z"/>
+  </svg>
+</button>
+
+<div id="nextgen-chat-box">
+  <div class="nextgen-chat-header">
+    <span>NextGen Chatbot Assistant</span>
+    <button onclick="nextgenToggleChat()">&#10006;</button>
+  </div>
+  <iframe id="nextgen-chat-frame" src="https://custom-nextgen-chatbot.vercel.app/?embed=true"></iframe>
+</div>
+
+<script>
+function nextgenToggleChat(){
+  const box = document.getElementById("nextgen-chat-box");
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+document.getElementById("nextgen-chat-btn").onclick = nextgenToggleChat;
+</script>
+<!-- ============================= END CHATBOT EMBED ============================= -->
+
+<script>
+  // ---- Mobile menu ----
+  const menuBtn = document.getElementById('menuBtn');
+  const mainNav = document.getElementById('mainNav');
+  const navScrim = document.getElementById('navScrim');
+
+  function openNav(){
+    mainNav.classList.add('is-open');
+    navScrim.classList.add('is-visible');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+  }
+  function closeNav(){
+    mainNav.classList.remove('is-open');
+    navScrim.classList.remove('is-visible');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+  }
+  menuBtn.addEventListener('click', () => {
+    mainNav.classList.contains('is-open') ? closeNav() : openNav();
+  });
+  navScrim.addEventListener('click', closeNav);
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+  // ---- Tab functionality ----
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+
+  // ---- Smooth scroll for anchor links (offset for fixed header) ----
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e){
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement){
+        e.preventDefault();
+        window.scrollTo({ top: targetElement.offsetTop - 84, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ---- Admission form submission ----
+  const admissionForm = document.getElementById('admissionForm');
+  admissionForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const program = document.getElementById('program').value;
+    alert(`Thank you ${name}! Your inquiry for ${program} has been submitted. Our admissions team will contact you within 24 hours.`);
+    admissionForm.reset();
+  });
+
+  // ---- Header scroll effect ----
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
+  });
+
+  // ---- Scroll reveal ----
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
+
+  // ---- Counter animation ----
+  const counters = document.querySelectorAll('[data-count]');
+  function animateCounter(el){
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window){
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          animateCounter(entry.target);
+          counterIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => counterIO.observe(c));
+  } else {
+    counters.forEach(c => { c.textContent = c.getAttribute('data-count') + (c.getAttribute('data-suffix') || ''); });
+  }
+</script>
+
+</body>
+</html>
